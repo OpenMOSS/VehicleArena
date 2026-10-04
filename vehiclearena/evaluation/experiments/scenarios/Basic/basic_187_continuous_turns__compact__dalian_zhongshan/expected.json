@@ -1,0 +1,120 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_187_continuous_turns__compact__dalian_zhongshan",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 14,
+      "pedestrians": 0
+    },
+    {
+      "kind": "minimum_route_connectors",
+      "entity": "ego",
+      "count": 3,
+      "minimum_turns": 3
+    },
+    {
+      "kind": "compact_turn_route",
+      "entity": "ego",
+      "connector_ids": [
+        "connector::n2274080000::2",
+        "connector::n2283350018::1",
+        "connector::n5453733001::1"
+      ],
+      "initial_setback_m": 60,
+      "minimum_gap_m": 40,
+      "maximum_gap_m": 140
+    },
+    {
+      "kind": "weather_transition",
+      "initial_condition": "rainy",
+      "target_condition": "heavy_rain",
+      "at_s": 18.3,
+      "second_condition": "rainy",
+      "second_at_s": 41.9
+    },
+    {
+      "kind": "daynight_transition",
+      "initial_period": "afternoon",
+      "target_period": "dusk",
+      "at_s": 18.3,
+      "second_period": "night",
+      "second_at_s": 41.9
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 13,
+      "longitudinal_cohort_minimum_count": 6,
+      "longitudinal_cohort_maximum_count": 8,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": 12.0,
+        "map_flow_02": -12.0,
+        "map_flow_03": 24.0,
+        "map_flow_04": 36.0,
+        "map_flow_05": 48.0,
+        "map_flow_extra_01": 75.555969,
+        "map_flow_extra_02": 87.555969,
+        "map_flow_extra_03": 99.555969
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n5453733000",
+        "map_flow_02": "n5453733000",
+        "map_flow_03": "n5453733000",
+        "map_flow_04": "n5453733000",
+        "map_flow_05": "n5453733000",
+        "map_flow_extra_01": "n5453733000",
+        "map_flow_extra_02": "n5453733000",
+        "map_flow_extra_03": "n5453733000"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n2273551381_n2274080000::lane_1",
+      "longitudinal_cohort_maximum_offset_m": 180.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "crossing_vehicle_ids": [
+        "map_cross_01",
+        "map_cross_02"
+      ],
+      "focal_route_lane_ids": [
+        "n2273551381_n2274080000::lane_1",
+        "n2274080000_n2283350018::lane_1",
+        "n2283350018_n5453733001::lane_1",
+        "n5453733000_n5453733001::lane_0"
+      ],
+      "focal_connector_ids": [
+        "connector::n2274080000::2",
+        "connector::n2283350018::1",
+        "connector::n5453733001::1"
+      ],
+      "extra_near_ego_npc_count": 3
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

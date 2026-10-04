@@ -1,0 +1,23 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_001_crosswalk",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 1,
+      "pedestrians": 1
+    },
+    {
+      "kind": "connector_crosswalk_conflict",
+      "vehicle": "ego",
+      "pedestrian": "pedestrian"
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

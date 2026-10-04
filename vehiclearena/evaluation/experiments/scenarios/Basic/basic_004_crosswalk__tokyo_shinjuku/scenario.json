@@ -1,0 +1,413 @@
+{
+  "scenario_id": "basic_004_crosswalk__tokyo_shinjuku",
+  "name": "Basic study task 004: Crosswalk baseline [tokyo_shinjuku]",
+  "road_network_id": "tokyo_shinjuku",
+  "difficulty": "controlled",
+  "total_time_s": 49.0,
+  "tick_interval_s": 2.0,
+  "physics_step_s": 0.1,
+  "vehicles": [
+    {
+      "vehicle_id": "ego",
+      "initial_node": "n1502259390",
+      "destination_node": "n475771011",
+      "initial_lane": 1,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.908525,
+        "speed_kmh": 18.0,
+        "target_speed_kmh": 18.0,
+        "desired_speed_kmh": 30.0,
+        "lane_id": "n1502259390_n475770654::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n475770654::3"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "map_flow_01",
+      "initial_node": "n1502259390",
+      "destination_node": "n475770654",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.877162,
+        "speed_kmh": 17.4,
+        "lane_id": "n1502259390_n475770654::lane_1"
+      }
+    },
+    {
+      "vehicle_id": "map_flow_02",
+      "initial_node": "n1502259390",
+      "destination_node": "n475770654",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.845799,
+        "speed_kmh": 18.6,
+        "lane_id": "n1502259390_n475770654::lane_1"
+      }
+    },
+    {
+      "vehicle_id": "map_flow_03",
+      "initial_node": "n1502259390",
+      "destination_node": "n475770654",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.814437,
+        "speed_kmh": 19.8,
+        "lane_id": "n1502259390_n475770654::lane_1"
+      }
+    },
+    {
+      "vehicle_id": "map_route_01",
+      "initial_node": "n1502259390",
+      "destination_node": "n475770654",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.18,
+        "speed_kmh": 16.5,
+        "lane_id": "n1502259390_n475770654::lane_1"
+      }
+    },
+    {
+      "vehicle_id": "map_route_02",
+      "initial_node": "n475770654",
+      "destination_node": "n475771011",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.18,
+        "speed_kmh": 18.0,
+        "lane_id": "n475770654_n475771011::lane_0"
+      }
+    },
+    {
+      "vehicle_id": "map_route_03",
+      "initial_node": "n1502259390",
+      "destination_node": "n475770654",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.34,
+        "speed_kmh": 19.5,
+        "lane_id": "n1502259390_n475770654::lane_1"
+      }
+    },
+    {
+      "vehicle_id": "map_route_04",
+      "initial_node": "n1502259390",
+      "destination_node": "n475770654",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.5,
+        "speed_kmh": 16.5,
+        "lane_id": "n1502259390_n475770654::lane_1"
+      }
+    },
+    {
+      "vehicle_id": "map_route_05",
+      "initial_node": "n475770654",
+      "destination_node": "n475771011",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.5,
+        "speed_kmh": 18.0,
+        "lane_id": "n475770654_n475771011::lane_0"
+      }
+    }
+  ],
+  "pedestrians": [
+    {
+      "ped_id": "pedestrian",
+      "initial_node": "n475770654",
+      "destination_node": "n475771011",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "speed": 1.4,
+      "start_time": 0.043333333333333335,
+      "is_evaluated": false,
+      "collision_radius_m": 0.4,
+      "initial_physical_state": {
+        "progress": 0.0,
+        "speed_mps": 1.4,
+        "crosswalk_id": "crosswalk::n475770654::0"
+      }
+    }
+  ],
+  "experiment_scene": {
+    "schema": "vehiclearena-experiment-scenes-v2",
+    "study": "basic",
+    "source_template_id": "baseline_crosswalk__tokyo_shinjuku",
+    "focal_vehicle_id": "ego",
+    "fixed_peer_vehicle_ids": [],
+    "sumo_background_vehicle_ids": [
+      "map_flow_01",
+      "map_flow_02",
+      "map_flow_03",
+      "map_route_01",
+      "map_route_02",
+      "map_route_03",
+      "map_route_04",
+      "map_route_05"
+    ],
+    "sumo_background_pedestrian_ids": [
+      "pedestrian"
+    ],
+    "interaction_tags": [
+      "crosswalk",
+      "vehicle_pedestrian",
+      "unsignalized",
+      "pedestrian_yield",
+      "through",
+      "stable_weather_control",
+      "stable_daynight_control",
+      "environment_group_control",
+      "task_config_adapted",
+      "fixed_time_pedestrian_entry",
+      "related_background_traffic",
+      "route_aligned_background",
+      "longitudinal_cohort_background"
+    ],
+    "weather_profile": {
+      "mode": "stable_control",
+      "initial_condition": "sunny",
+      "target_condition": null,
+      "change_at_s": null,
+      "primary_condition": null,
+      "recovers_to_sunny": false,
+      "recovery_at_s": null,
+      "second_condition": null,
+      "second_change_at_s": null,
+      "conditions": [
+        "sunny"
+      ],
+      "climate_profile_id": "tokyo_shinjuku@1991-2020-v1:northern_continental",
+      "climate_month": null
+    },
+    "daynight_profile": {
+      "mode": "stable_control",
+      "initial_period": "noon",
+      "target_period": null,
+      "change_at_s": null,
+      "second_period": null,
+      "second_change_at_s": null,
+      "period_sequence": [
+        "noon"
+      ],
+      "climate_month": null
+    },
+    "environment_group": "control",
+    "network": "tokyo_shinjuku",
+    "runtime_compatibility": {
+      "task_config_revision": "task-config-native-sumo-v2"
+    },
+    "task_migration": {
+      "revision": "task-config-native-sumo-v2",
+      "changes": [
+        {
+          "kind": "fixed_pedestrian_spawn",
+          "entity": "pedestrian",
+          "start_time_s": 2.6,
+          "original_trigger": {
+            "vehicle_id": "ego",
+            "ttc_s": 4.0
+          }
+        }
+      ],
+      "original_setup_assertions": [
+        {
+          "kind": "entity_count",
+          "vehicles": 1,
+          "pedestrians": 1
+        },
+        {
+          "kind": "connector_crosswalk_conflict",
+          "vehicle": "ego",
+          "pedestrian": "pedestrian"
+        },
+        {
+          "kind": "unsignalized_pedestrian_ttc",
+          "vehicle": "ego",
+          "pedestrian": "pedestrian",
+          "ttc_s": 4.0
+        }
+      ],
+      "not_equivalent_to_dynamic_tasks": true
+    },
+    "purpose": "Fixed-time pedestrian entry; vehicle NPCs remain SUMO-native.",
+    "related_background_traffic": {
+      "schema": "vehiclearena-related-background-v1",
+      "minimum_count": 8,
+      "base_minimum_count": 5,
+      "longitudinal_cohort_minimum_count": 3,
+      "longitudinal_cohort_maximum_count": 5,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": -12.0,
+        "map_flow_02": -24.0,
+        "map_flow_03": -36.0
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n475770654",
+        "map_flow_02": "n475770654",
+        "map_flow_03": "n475770654"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n1502259390_n475770654::lane_1",
+      "longitudinal_cohort_maximum_offset_m": 72.0,
+      "longitudinal_cohort_destination_policy": "pedestrian_approach_or_focal_destination",
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ],
+      "supplemental_route_aligned_vehicle_ids": [
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ],
+      "crossing_vehicle_ids": [],
+      "vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ],
+      "relation_definition": {
+        "longitudinal_cohort": "starts near the focal vehicle on its same-direction start segment, or just beyond a compact pedestrian connector, and shares the focal downstream destination; pedestrian followers terminate at the crossing approach so native traffic never pre-empts the authored pedestrian",
+        "route_aligned": "same physical road segment as the focal route; same-direction lanes are preferred and opposing lanes are used only as a compact-road fallback",
+        "crossing": "connector conflicts with a connector on the focal route"
+      },
+      "focal_route_keys": [
+        {
+          "segment_id": "n1502259390_n475770654",
+          "direction": "forward"
+        },
+        {
+          "segment_id": "n475770654_n475771011",
+          "direction": "backward"
+        }
+      ],
+      "focal_route_segment_ids": [
+        "n1502259390_n475770654",
+        "n475770654_n475771011"
+      ]
+    }
+  },
+  "sumo_config": {
+    "npc_behavior": {
+      "schema": "native-npc-mixed-v1",
+      "seed": 42,
+      "vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ]
+    }
+  },
+  "daynight_keyframes": [
+    {
+      "t": 0.0,
+      "period": "afternoon",
+      "description": "The local time advances into afternoon daylight."
+    },
+    {
+      "t": 0.17,
+      "period": "dusk",
+      "description": "Dusk begins and ambient light falls."
+    },
+    {
+      "t": 0.49,
+      "period": "night",
+      "description": "Night falls and the road becomes dark."
+    }
+  ],
+  "time_window_calibration": {
+    "schema": "vehiclearena-time-window-calibration-v6",
+    "method": "reference_max_sumo_terminal_or_last_event_plus_margin",
+    "max_successful_completion_s": 39.0,
+    "last_scheduled_event_s": 29.4,
+    "time_limit_s": 49.0,
+    "case_count": 1,
+    "successful_case_count": 1,
+    "reference_policy": "all_sumo",
+    "actor_configurations": [
+      "all_sumo"
+    ],
+    "registry_generated_at": "2026-09-23T15:04:07.355290+00:00",
+    "margin_s": 10.0
+  }
+}

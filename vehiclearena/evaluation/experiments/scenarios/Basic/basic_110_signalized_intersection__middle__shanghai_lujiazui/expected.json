@@ -1,0 +1,103 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_110_signalized_intersection__middle__shanghai_lujiazui",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 14,
+      "pedestrians": 0
+    },
+    {
+      "kind": "initial_signal",
+      "connector_id": "connector::intersection::n554691049::3",
+      "value": "red"
+    },
+    {
+      "kind": "same_lane",
+      "entities": [
+        "front",
+        "ego",
+        "rear"
+      ]
+    },
+    {
+      "kind": "middle_signal_queue",
+      "entity": "ego",
+      "front": "front",
+      "rear": "rear",
+      "connector_id": "connector::intersection::n554691049::3",
+      "spacing_m": 9.0
+    },
+    {
+      "kind": "daynight_transition",
+      "initial_period": "afternoon",
+      "target_period": "dusk",
+      "at_s": 23.6,
+      "second_period": "night",
+      "second_at_s": 55.3
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 11,
+      "longitudinal_cohort_minimum_count": 6,
+      "longitudinal_cohort_maximum_count": 8,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": -24.0,
+        "map_flow_02": -36.0,
+        "map_flow_03": -48.0,
+        "map_flow_extra_01": -60.000083,
+        "map_flow_extra_02": -69.999971,
+        "map_flow_extra_03": -80.000048
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n602392064",
+        "map_flow_02": "n602392064",
+        "map_flow_03": "n602392064",
+        "map_flow_extra_01": "n602392064",
+        "map_flow_extra_02": "n602392064",
+        "map_flow_extra_03": "n602392064"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n554691043_n554691049::lane_1",
+      "longitudinal_cohort_maximum_offset_m": 180.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "crossing_vehicle_ids": [
+        "map_cross_01",
+        "map_cross_02"
+      ],
+      "focal_route_lane_ids": [
+        "n554691043_n554691049::lane_1",
+        "n554691058_n602392064::lane_1"
+      ],
+      "focal_connector_ids": [
+        "connector::intersection::n554691049::3"
+      ],
+      "extra_near_ego_npc_count": 3
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

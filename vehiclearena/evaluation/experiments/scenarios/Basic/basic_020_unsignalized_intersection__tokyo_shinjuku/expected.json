@@ -1,0 +1,89 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_020_unsignalized_intersection__tokyo_shinjuku",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 13,
+      "pedestrians": 0
+    },
+    {
+      "kind": "connector_conflict",
+      "entities": [
+        "ego",
+        "cross_traffic"
+      ]
+    },
+    {
+      "kind": "signal_control",
+      "value": false,
+      "entities": [
+        "ego",
+        "cross_traffic"
+      ]
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 11,
+      "longitudinal_cohort_minimum_count": 6,
+      "longitudinal_cohort_maximum_count": 8,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": 12.0,
+        "map_flow_02": -12.0,
+        "map_flow_03": 24.0,
+        "map_flow_extra_01": 49.376024,
+        "map_flow_extra_02": 109.376024,
+        "map_flow_extra_03": 121.376024
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n475758010",
+        "map_flow_02": "n475758010",
+        "map_flow_03": "n475758010",
+        "map_flow_extra_01": "n475758010",
+        "map_flow_extra_02": "n475758010",
+        "map_flow_extra_03": "n475758010"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n475758058_n475763358::lane_1",
+      "longitudinal_cohort_maximum_offset_m": 180.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "crossing_vehicle_ids": [
+        "map_cross_01",
+        "map_cross_02"
+      ],
+      "focal_route_lane_ids": [
+        "n475758058_n475763358::lane_1",
+        "n475758010_n475758058::lane_0"
+      ],
+      "focal_connector_ids": [
+        "connector::n475758058::3"
+      ],
+      "extra_near_ego_npc_count": 3
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

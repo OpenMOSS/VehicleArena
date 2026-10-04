@@ -1,0 +1,16 @@
+{
+  "name": "vehiclearena-web3d",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Browser 3D viewer for VehicleArena HD maps",
+  "scripts": {
+    "serve": "python3 server.py"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "three": "0.185.1"
+  }
+}

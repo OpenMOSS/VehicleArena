@@ -1,0 +1,153 @@
+schema: vehiclearena-location-weather-v1
+reference_period: 1991-2020
+source_basis:
+  - koppen_geiger_1km_v2
+  - era5_land_hourly_climatology
+  - curated_urban_core_review
+
+profiles:
+  tropical_monsoon:
+    eligibility: {sunny: common, cloudy: common, rainy: common, heavy_rain: common, foggy: plausible, snowy: forbidden, heavy_snow: forbidden, hail: plausible}
+    months: {fair: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], rain: [3, 4, 5, 6, 7, 8, 9, 10, 11], fog: [1, 2, 3, 4, 11, 12], snow: [], hail: [3, 4, 5, 6, 7, 8, 9, 10]}
+    temperature_c: {fair: [24, 33], rain: [23, 30], fog: [19, 27], snow: [-2, 1], hail: [20, 29]}
+
+  tropical_equatorial:
+    eligibility: {sunny: common, cloudy: common, rainy: common, heavy_rain: common, foggy: plausible, snowy: forbidden, heavy_snow: forbidden, hail: plausible}
+    months: {fair: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], rain: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], fog: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], snow: [], hail: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
+    temperature_c: {fair: [25, 33], rain: [24, 30], fog: [22, 28], snow: [-2, 1], hail: [22, 29]}
+
+  hot_arid:
+    eligibility: {sunny: common, cloudy: plausible, rainy: plausible, heavy_rain: plausible, foggy: plausible, snowy: forbidden, heavy_snow: forbidden, hail: plausible}
+    months: {fair: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], rain: [1, 2, 3, 4, 10, 11, 12], fog: [1, 2, 3, 11, 12], snow: [], hail: [2, 3, 4, 10, 11, 12]}
+    temperature_c: {fair: [18, 37], rain: [13, 27], fog: [11, 24], snow: [-2, 1], hail: [13, 27]}
+
+  warm_humid:
+    eligibility: {sunny: common, cloudy: common, rainy: common, heavy_rain: common, foggy: common, snowy: forbidden, heavy_snow: forbidden, hail: plausible}
+    months: {fair: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], rain: [3, 4, 5, 6, 7, 8, 9, 10], fog: [1, 2, 3, 4, 10, 11, 12], snow: [], hail: [3, 4, 5, 6, 7, 8, 9]}
+    temperature_c: {fair: [12, 31], rain: [15, 27], fog: [8, 21], snow: [-2, 1], hail: [12, 25]}
+
+  marine_no_snow:
+    eligibility: {sunny: common, cloudy: common, rainy: common, heavy_rain: plausible, foggy: common, snowy: forbidden, heavy_snow: forbidden, hail: plausible}
+    months: {fair: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], rain: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], fog: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], snow: [], hail: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
+    temperature_c: {fair: [10, 28], rain: [8, 22], fog: [7, 18], snow: [-2, 1], hail: [7, 20]}
+
+  humid_subtropical:
+    eligibility: {sunny: common, cloudy: common, rainy: common, heavy_rain: common, foggy: common, snowy: plausible, heavy_snow: plausible, hail: plausible}
+    months: {fair: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], rain: [3, 4, 5, 6, 7, 8, 9, 10], fog: [1, 2, 3, 4, 10, 11, 12], snow: [1, 2, 12], hail: [3, 4, 5, 6, 7, 8, 9]}
+    temperature_c: {fair: [8, 31], rain: [10, 27], fog: [4, 18], snow: [-2, 1], hail: [7, 22]}
+
+  temperate_maritime:
+    eligibility: {sunny: common, cloudy: common, rainy: common, heavy_rain: plausible, foggy: common, snowy: plausible, heavy_snow: plausible, hail: plausible}
+    months: {fair: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], rain: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], fog: [1, 2, 3, 4, 9, 10, 11, 12], snow: [1, 2, 3, 11, 12], hail: [1, 2, 3, 4, 5, 9, 10, 11, 12]}
+    temperature_c: {fair: [5, 25], rain: [5, 19], fog: [2, 14], snow: [-4, 1], hail: [3, 15]}
+
+  northern_continental:
+    eligibility: {sunny: common, cloudy: common, rainy: common, heavy_rain: common, foggy: plausible, snowy: common, heavy_snow: plausible, hail: plausible}
+    # Light rain can occur outside the main warm-season peak, including
+    # January.  The benchmark models physical plausibility rather than a
+    # strict climatological frequency cutoff.
+    months: {fair: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], rain: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], fog: [1, 2, 3, 9, 10, 11, 12], snow: [1, 2, 3, 11, 12], hail: [3, 4, 5, 6, 7, 8, 9]}
+    temperature_c: {fair: [3, 29], rain: [9, 25], fog: [-1, 14], snow: [-8, 0], hail: [5, 19]}
+
+  cold_continental:
+    eligibility: {sunny: common, cloudy: common, rainy: common, heavy_rain: plausible, foggy: plausible, snowy: common, heavy_snow: common, hail: plausible}
+    months: {fair: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], rain: [4, 5, 6, 7, 8, 9, 10], fog: [1, 2, 3, 9, 10, 11, 12], snow: [1, 2, 3, 10, 11, 12], hail: [3, 4, 5, 6, 7, 8, 9]}
+    temperature_c: {fair: [-8, 27], rain: [7, 22], fog: [-7, 11], snow: [-15, -2], hail: [3, 17]}
+
+  highland_light_snow:
+    eligibility: {sunny: common, cloudy: common, rainy: common, heavy_rain: plausible, foggy: plausible, snowy: plausible, heavy_snow: forbidden, hail: plausible}
+    months: {fair: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], rain: [4, 5, 6, 7, 8, 9, 10], fog: [1, 2, 3, 4, 9, 10, 11, 12], snow: [1, 2, 3, 11, 12], hail: [3, 4, 5, 6, 7, 8, 9]}
+    temperature_c: {fair: [4, 24], rain: [6, 19], fog: [0, 12], snow: [-7, 0], hail: [3, 16]}
+
+locations:
+  amsterdam_centrum: temperate_maritime
+  bangkok_silom: tropical_monsoon
+  beijing_guomao: northern_continental
+  beijing_zhongguancun: northern_continental
+  beijing_sanlitun: northern_continental
+  beijing_tiananmen: northern_continental
+  beijing_wangjing: northern_continental
+  beijing_wudaokou: northern_continental
+  beijing_xidan: northern_continental
+  beijing_yizhuang: northern_continental
+  berlin_mitte: cold_continental
+  cairo_downtown: hot_arid
+  changchun_chaoyang: cold_continental
+  changsha_furong: humid_subtropical
+  changsha_wuyi: humid_subtropical
+  changzhou_tianning: humid_subtropical
+  chengdu_chunxi: warm_humid
+  chengdu_gaoxin: warm_humid
+  chengdu_jinjiang: warm_humid
+  chicago_loop: cold_continental
+  chongqing_jiefangbei: warm_humid
+  dalian_zhongshan: northern_continental
+  dongguan_nancheng: tropical_monsoon
+  dubai_downtown: hot_arid
+  foshan_chancheng: tropical_monsoon
+  fuzhou_wuyi: tropical_monsoon
+  guangzhou_panyu: tropical_monsoon
+  guangzhou_tianhe: tropical_monsoon
+  guiyang_guanshanhu: humid_subtropical
+  haikou_longhua: tropical_monsoon
+  hangzhou_binjiang: humid_subtropical
+  hangzhou_xihu: humid_subtropical
+  hanoi_hoankiem: tropical_monsoon
+  harbin_zhongyang: cold_continental
+  hefei_shushan: humid_subtropical
+  hefei_zhengwu: humid_subtropical
+  helsinki_keskusta: cold_continental
+  hohhot_saihan: cold_continental
+  hongkong_central: tropical_monsoon
+  istanbul_beyoglu: temperate_maritime
+  jakarta_central: tropical_equatorial
+  jiaxing_nanhu: humid_subtropical
+  jinan_quancheng: northern_continental
+  kualalumpur_bukit: tropical_equatorial
+  kunming_cuihu: highland_light_snow
+  lanzhou_chengguan: highland_light_snow
+  lasa_chengguan: highland_light_snow
+  london_westend: temperate_maritime
+  losangeles_downtown: marine_no_snow
+  madrid_centro: temperate_maritime
+  melbourne_cbd: marine_no_snow
+  moscow_tverskaya: cold_continental
+  mumbai_bandra: tropical_monsoon
+  nanchang_honggutan: humid_subtropical
+  nanjing_hexi: humid_subtropical
+  nanjing_xinjiekou: humid_subtropical
+  nantong_chongchuan: humid_subtropical
+  newyork_manhattan_mid: northern_continental
+  ningbo_tianyi: humid_subtropical
+  osaka_namba: temperate_maritime
+  paris_champs: temperate_maritime
+  prague_staremesto: temperate_maritime
+  qingdao_shinan: northern_continental
+  qingdao_wusi: northern_continental
+  rome_centro: temperate_maritime
+  sanfrancisco_soma: marine_no_snow
+  seoul_gangnam: northern_continental
+  shanghai_hongkou: humid_subtropical
+  shanghai_jinganbei: humid_subtropical
+  shanghai_lujiazui: humid_subtropical
+  shanghai_pudong_zhangjiang: humid_subtropical
+  shanghai_xujiahui: humid_subtropical
+  shenyang_heping: cold_continental
+  shenyang_zhongjie: cold_continental
+  shenzhen_futian: tropical_monsoon
+  shenzhen_nanshan: tropical_monsoon
+  singapore_orchard: tropical_equatorial
+  stockholm_norrmalm: cold_continental
+  suzhou_guanqian: humid_subtropical
+  sydney_cbd: marine_no_snow
+  taipei_xinyi: tropical_monsoon
+  taiyuan_yingze: northern_continental
+  tianjin_heping: northern_continental
+  tokyo_shinjuku: northern_continental
+  toronto_downtown: cold_continental
+  vienna_innere: temperate_maritime
+  warsaw_srodmiescie: cold_continental
+  wuhan_hankou: humid_subtropical
+  wuxi_taihu: humid_subtropical
+  xiamen_huli: tropical_monsoon
+  xian_zhonglou: northern_continental

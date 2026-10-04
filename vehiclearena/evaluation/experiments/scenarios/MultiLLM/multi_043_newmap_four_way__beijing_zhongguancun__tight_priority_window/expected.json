@@ -1,0 +1,167 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "multi_043_newmap_four_way__beijing_zhongguancun__tight_priority_window",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 13,
+      "pedestrians": 0
+    },
+    {
+      "kind": "same_junction_minimum_conflicts",
+      "entities": [
+        "ego",
+        "approach_2",
+        "approach_3",
+        "approach_4"
+      ],
+      "minimum_conflicting_pairs": 3
+    },
+    {
+      "kind": "synchronized_unsignalized_arrivals",
+      "entities": [
+        "ego",
+        "approach_2",
+        "approach_3",
+        "approach_4"
+      ],
+      "setbacks_m": [
+        34.0,
+        37.0,
+        40.0,
+        43.0
+      ],
+      "speed_kmh": 24.0,
+      "maximum_arrival_spread_s": 2.0,
+      "hard_profile_speeds_kmh": [
+        24.0,
+        24.0,
+        24.0,
+        24.0
+      ]
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 8,
+      "longitudinal_cohort_minimum_count": 3,
+      "longitudinal_cohort_maximum_count": 5,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": 12.0,
+        "map_flow_02": -12.0,
+        "map_flow_03": 24.0,
+        "map_flow_04": -24.0
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n567891688",
+        "map_flow_02": "n567891688",
+        "map_flow_03": "n567891688",
+        "map_flow_04": "n567891688"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n1877984745_n245130315::lane_1",
+      "longitudinal_cohort_maximum_offset_m": 72.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03"
+      ],
+      "crossing_vehicle_ids": [
+        "map_cross_01",
+        "map_cross_02"
+      ],
+      "focal_route_lane_ids": [
+        "n1877984745_n245130315::lane_1",
+        "n1877984745_n567891688::lane_0"
+      ],
+      "focal_connector_ids": [
+        "connector::n1877984745::0"
+      ]
+    },
+    {
+      "kind": "weather_transition",
+      "initial_condition": "cloudy",
+      "target_condition": "snowy",
+      "at_s": 20.0,
+      "second_condition": null,
+      "second_at_s": null
+    },
+    {
+      "kind": "daynight_transition",
+      "initial_period": "night",
+      "target_period": "dawn",
+      "at_s": 20.0,
+      "second_period": null,
+      "second_at_s": null
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  },
+  "runtime_acceptance": [
+    {
+      "kind": "minimum_connector_conflicts",
+      "entity": "ego",
+      "peer_ids": [
+        "approach_2",
+        "approach_3",
+        "approach_4"
+      ],
+      "minimum_distinct_peers": 2
+    },
+    {
+      "kind": "collision_free",
+      "entities": [
+        "ego",
+        "approach_2",
+        "approach_3",
+        "approach_4"
+      ]
+    },
+    {
+      "kind": "route_arrival",
+      "entities": [
+        "ego",
+        "approach_2",
+        "approach_3",
+        "approach_4"
+      ]
+    }
+  ],
+  "hardness_profile": {
+    "schema": "vehiclearena-hard-multillm-new-map-v1",
+    "family": "four_way",
+    "label": "tight_priority_window",
+    "network": "beijing_zhongguancun",
+    "mechanism": "all four agents arrive in a narrow priority window",
+    "causal_chain_target": "one blocked connector changes the discharge order for the whole group",
+    "initial_llm_speeds_kmh": [
+      24.0,
+      24.0,
+      24.0,
+      24.0
+    ],
+    "llm_vehicle_ids": [
+      "ego",
+      "approach_2",
+      "approach_3",
+      "approach_4"
+    ],
+    "base_time_limit_s": 28.0,
+    "calibration_status": "calibrated",
+    "time_limit_s": 77.7
+  }
+}

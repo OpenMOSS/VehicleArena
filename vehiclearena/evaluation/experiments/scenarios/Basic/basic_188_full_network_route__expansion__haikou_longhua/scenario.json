@@ -1,0 +1,1367 @@
+{
+  "scenario_id": "basic_188_full_network_route__expansion__haikou_longhua",
+  "name": "Basic study task 188: Full-network route with ego-centric traffic [haikou longhua]",
+  "road_network_id": "haikou_longhua",
+  "difficulty": "controlled",
+  "total_time_s": 281.2,
+  "tick_interval_s": 2.0,
+  "physics_step_s": 0.1,
+  "vehicles": [
+    {
+      "vehicle_id": "ego",
+      "initial_node": "n6008753714",
+      "destination_node": "n6008753734",
+      "initial_lane": 1,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.08,
+        "speed_kmh": 22.0,
+        "target_speed_kmh": 22.0,
+        "desired_speed_kmh": 30.0,
+        "lane_id": "n11507266982_n6008753714::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507266982::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507278144::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11513417363::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11478424613::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n1877863395::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11486479593::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753627::5"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753621::8"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "traffic_01",
+      "initial_node": "n11484332958",
+      "destination_node": "n6008833562",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.16,
+        "speed_kmh": 26.0,
+        "lane_id": "n11484332958_n6241859800::lane_0",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n6241859800::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6241859801::1"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6241859799::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3162563941::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11482423657::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n1989881531::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11482423616::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3190021750::0"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "traffic_02",
+      "initial_node": "n11507271289",
+      "destination_node": "n11486491143",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.24,
+        "speed_kmh": 30.0,
+        "lane_id": "n11507271289_n11507271295::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507271295::5"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n847746385::5"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11799743351::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3189988182::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3189988181::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n9054384388::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n9054384441::0"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "traffic_03",
+      "initial_node": "n6008753721",
+      "destination_node": "n6011018412",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.32,
+        "speed_kmh": 22.0,
+        "lane_id": "n6008753716_n6008753721::lane_0",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753716::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753710::1"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11484332956::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507271340::7"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3167551266::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753686::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3161545436::8"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3161545451::2"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "traffic_04",
+      "initial_node": "n3189988181",
+      "destination_node": "n9350673193",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.08,
+        "speed_kmh": 26.0,
+        "lane_id": "n2249522604_n3189988181::lane_0",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n2249522604::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n2249482345::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n2249482354::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n2249482362::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n2249585880::1"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n10852677388::6"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n2249482367::1"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n10852778434::1"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "traffic_05",
+      "initial_node": "n11482844887",
+      "destination_node": "n3650844171",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.16,
+        "speed_kmh": 30.0,
+        "lane_id": "n11482844887_n3161545447::lane_0",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n3161545447::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507271338::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507271341::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3161545441::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3161545438::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3161545437::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3167551289::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3161545436::0"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "traffic_06",
+      "initial_node": "n11486491156",
+      "destination_node": "n2249585880",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.24,
+        "speed_kmh": 22.0,
+        "lane_id": "n11486491143_n11486491156::lane_0",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11486491143::1"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n9054384441::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n9054384388::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3189988181::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n2249522604::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n2249482345::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n2249482354::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n2249482362::2"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "traffic_07",
+      "initial_node": "n1877863510",
+      "destination_node": "n847746385",
+      "initial_lane": 3,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.32,
+        "speed_kmh": 26.0,
+        "lane_id": "n10852778433_n1877863510::lane_3",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n10852778433::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n10852778423::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n10852778410::7"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n10852677389::7"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3655735026::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n1877863494::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n2249482352::7"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n2249482342::1"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "traffic_08",
+      "initial_node": "n847746385",
+      "destination_node": "n11486491143",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.08,
+        "speed_kmh": 30.0,
+        "lane_id": "n11799743351_n847746385::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11799743351::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3189988182::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3189988181::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n9054384388::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n9054384441::0"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "oncoming_01",
+      "initial_node": "n11507266982",
+      "destination_node": "n6008753714",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.2,
+        "speed_kmh": 26.0,
+        "lane_id": "n11507266982_n6008753714::lane_0"
+      }
+    },
+    {
+      "vehicle_id": "oncoming_02",
+      "initial_node": "n11507266982",
+      "destination_node": "n6008753714",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.45,
+        "speed_kmh": 26.0,
+        "lane_id": "n11507266982_n6008753714::lane_0"
+      }
+    },
+    {
+      "vehicle_id": "oncoming_03",
+      "initial_node": "n11507266982",
+      "destination_node": "n6008753714",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.7,
+        "speed_kmh": 26.0,
+        "lane_id": "n11507266982_n6008753714::lane_0"
+      }
+    },
+    {
+      "vehicle_id": "map_flow_01",
+      "initial_node": "n6008753714",
+      "destination_node": "n6008753734",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.110816,
+        "speed_kmh": 23.2,
+        "lane_id": "n11507266982_n6008753714::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507266982::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507278144::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11513417363::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11478424613::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n1877863395::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11486479593::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753627::5"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753621::8"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "map_flow_02",
+      "initial_node": "n6008753714",
+      "destination_node": "n6008753734",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.049184,
+        "speed_kmh": 24.8,
+        "lane_id": "n11507266982_n6008753714::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507266982::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507278144::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11513417363::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11478424613::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n1877863395::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11486479593::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753627::5"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753621::8"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "map_flow_03",
+      "initial_node": "n6008753714",
+      "destination_node": "n6008753734",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.141631,
+        "speed_kmh": 26.4,
+        "lane_id": "n11507266982_n6008753714::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507266982::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507278144::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11513417363::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11478424613::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n1877863395::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11486479593::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753627::5"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753621::8"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "map_flow_04",
+      "initial_node": "n6008753714",
+      "destination_node": "n6008753734",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.018369,
+        "speed_kmh": 23.2,
+        "lane_id": "n11507266982_n6008753714::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507266982::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507278144::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11513417363::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11478424613::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n1877863395::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11486479593::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753627::5"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753621::8"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "map_flow_05",
+      "initial_node": "n6008753714",
+      "destination_node": "n6008753734",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.172447,
+        "speed_kmh": 24.8,
+        "lane_id": "n11507266982_n6008753714::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507266982::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507278144::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11513417363::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11478424613::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n1877863395::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11486479593::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753627::5"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753621::8"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "map_route_01",
+      "initial_node": "n6008753714",
+      "destination_node": "n6008753734",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.82,
+        "speed_kmh": 22.0,
+        "lane_id": "n11507266982_n6008753714::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507266982::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507278144::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11513417363::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11478424613::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n1877863395::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11486479593::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753627::5"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753621::8"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "map_route_02",
+      "initial_node": "n11507278144",
+      "destination_node": "n6008753734",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.82,
+        "speed_kmh": 24.0,
+        "lane_id": "n11507278144_n11513417363::lane_0",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11513417363::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11478424613::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n1877863395::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11486479593::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753627::5"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753621::8"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "map_route_03",
+      "initial_node": "n11507278144",
+      "destination_node": "n6008753734",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.82,
+        "speed_kmh": 26.0,
+        "lane_id": "n11507278144_n11513417363::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11513417363::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11478424613::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n1877863395::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11486479593::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753627::5"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753621::8"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "map_cross_01",
+      "initial_node": "n11513417363",
+      "destination_node": "n11799743350",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.82,
+        "speed_kmh": 23.2,
+        "lane_id": "n11507266982_n11513417363::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507266982::8"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "map_cross_02",
+      "initial_node": "n11513417363",
+      "destination_node": "n11799743350",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.742037,
+        "speed_kmh": 25.2,
+        "lane_id": "n11507266982_n11513417363::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507266982::8"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "map_flow_extra_01",
+      "initial_node": "n6008753714",
+      "destination_node": "n6008753734",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.208398,
+        "speed_kmh": 23.2,
+        "lane_id": "n11507266982_n6008753714::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507266982::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507278144::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11513417363::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11478424613::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n1877863395::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11486479593::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753627::5"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753621::8"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "map_flow_extra_02",
+      "initial_node": "n6008753714",
+      "destination_node": "n6008753734",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.234078,
+        "speed_kmh": 24.8,
+        "lane_id": "n11507266982_n6008753714::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507266982::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507278144::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11513417363::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11478424613::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n1877863395::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11486479593::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753627::5"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753621::8"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "map_flow_extra_03",
+      "initial_node": "n6008753714",
+      "destination_node": "n6008753734",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.259758,
+        "speed_kmh": 26.4,
+        "lane_id": "n11507266982_n6008753714::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507266982::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11507278144::4"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11513417363::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11478424613::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n1877863395::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n11486479593::0"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753627::5"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n6008753621::8"
+          }
+        ]
+      }
+    }
+  ],
+  "pedestrians": [],
+  "experiment_scene": {
+    "schema": "vehiclearena-experiment-scenes-v2",
+    "study": "basic",
+    "source_template_id": "chassis_full_network_route__expansion__haikou_longhua",
+    "focal_vehicle_id": "ego",
+    "fixed_peer_vehicle_ids": [],
+    "sumo_background_vehicle_ids": [
+      "traffic_01",
+      "traffic_02",
+      "traffic_03",
+      "traffic_04",
+      "traffic_05",
+      "traffic_06",
+      "traffic_07",
+      "traffic_08",
+      "oncoming_01",
+      "oncoming_02",
+      "oncoming_03",
+      "map_flow_01",
+      "map_flow_02",
+      "map_flow_03",
+      "map_flow_04",
+      "map_flow_05",
+      "map_route_01",
+      "map_route_02",
+      "map_route_03",
+      "map_cross_01",
+      "map_cross_02",
+      "map_flow_extra_01",
+      "map_flow_extra_02",
+      "map_flow_extra_03"
+    ],
+    "sumo_background_pedestrian_ids": [],
+    "interaction_tags": [
+      "full_network",
+      "multi_vehicle",
+      "traffic_load",
+      "ego_centric_oncoming",
+      "sumo_native_oncoming",
+      "stable_weather_control",
+      "stable_daynight_control",
+      "environment_group_control",
+      "related_background_traffic",
+      "route_aligned_background",
+      "longitudinal_cohort_background",
+      "crossing_background",
+      "near_ego_same_destination_npc"
+    ],
+    "weather_profile": {
+      "mode": "stable_control",
+      "initial_condition": "sunny",
+      "target_condition": null,
+      "change_at_s": null,
+      "primary_condition": null,
+      "recovers_to_sunny": false,
+      "recovery_at_s": null,
+      "second_condition": null,
+      "second_change_at_s": null,
+      "conditions": [
+        "sunny"
+      ],
+      "climate_profile_id": "haikou_longhua@1991-2020-v1:tropical_monsoon",
+      "climate_month": null
+    },
+    "daynight_profile": {
+      "mode": "stable_control",
+      "initial_period": "noon",
+      "target_period": null,
+      "change_at_s": null,
+      "second_period": null,
+      "second_change_at_s": null,
+      "period_sequence": [
+        "noon"
+      ],
+      "climate_month": null
+    },
+    "environment_group": "control",
+    "network": "haikou_longhua",
+    "runtime_compatibility": {
+      "task_config_revision": "task-config-native-sumo-v2"
+    },
+    "related_background_traffic": {
+      "schema": "vehiclearena-related-background-v1",
+      "minimum_count": 13,
+      "base_minimum_count": 5,
+      "longitudinal_cohort_minimum_count": 6,
+      "longitudinal_cohort_maximum_count": 8,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": 12.0,
+        "map_flow_02": -12.0,
+        "map_flow_03": 24.0,
+        "map_flow_04": -24.0,
+        "map_flow_05": 36.0,
+        "map_flow_extra_01": 49.99985,
+        "map_flow_extra_02": 59.999976,
+        "map_flow_extra_03": 70.000102
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n6008753734",
+        "map_flow_02": "n6008753734",
+        "map_flow_03": "n6008753734",
+        "map_flow_04": "n6008753734",
+        "map_flow_05": "n6008753734",
+        "map_flow_extra_01": "n6008753734",
+        "map_flow_extra_02": "n6008753734",
+        "map_flow_extra_03": "n6008753734"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n11507266982_n6008753714::lane_1",
+      "longitudinal_cohort_maximum_offset_m": 180.0,
+      "longitudinal_cohort_destination_policy": "focal_destination",
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "supplemental_route_aligned_vehicle_ids": [
+        "map_route_01",
+        "map_route_02",
+        "map_route_03"
+      ],
+      "crossing_vehicle_ids": [
+        "map_cross_01",
+        "map_cross_02"
+      ],
+      "vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_cross_01",
+        "map_cross_02",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "relation_definition": {
+        "longitudinal_cohort": "starts near the focal vehicle on its same-direction start segment, or just beyond a compact pedestrian connector, and shares the focal downstream destination; pedestrian followers terminate at the crossing approach so native traffic never pre-empts the authored pedestrian",
+        "route_aligned": "same physical road segment as the focal route; same-direction lanes are preferred and opposing lanes are used only as a compact-road fallback",
+        "crossing": "connector conflicts with a connector on the focal route",
+        "extra_near_ego_npc": "same-destination native SUMO vehicles placed on the focal start segment or its first downstream route lane"
+      },
+      "focal_route_keys": [
+        {
+          "segment_id": "n11478424613_n11513417363",
+          "direction": "backward"
+        },
+        {
+          "segment_id": "n11478424613_n1877863395",
+          "direction": "backward"
+        },
+        {
+          "segment_id": "n11486479593_n1877863395",
+          "direction": "forward"
+        },
+        {
+          "segment_id": "n11486479593_n6008753627",
+          "direction": "backward"
+        },
+        {
+          "segment_id": "n11507266982_n11507278144",
+          "direction": "forward"
+        },
+        {
+          "segment_id": "n11507266982_n6008753714",
+          "direction": "forward"
+        },
+        {
+          "segment_id": "n11507278144_n11513417363",
+          "direction": "forward"
+        },
+        {
+          "segment_id": "n6008753621_n6008753627",
+          "direction": "forward"
+        },
+        {
+          "segment_id": "n6008753621_n6008753734",
+          "direction": "forward"
+        }
+      ],
+      "focal_route_segment_ids": [
+        "n11478424613_n11513417363",
+        "n11478424613_n1877863395",
+        "n11486479593_n1877863395",
+        "n11486479593_n6008753627",
+        "n11507266982_n11507278144",
+        "n11507266982_n6008753714",
+        "n11507278144_n11513417363",
+        "n6008753621_n6008753627",
+        "n6008753621_n6008753734"
+      ],
+      "extra_near_ego_npc_count": 3,
+      "extra_near_ego_npc_ids": [
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "extra_near_ego_npc_clearance_m": 10.0,
+      "extra_near_ego_npc_max_route_offset_m": 180.0
+    }
+  },
+  "sumo_config": {
+    "npc_behavior": {
+      "schema": "native-npc-mixed-v1",
+      "seed": 42,
+      "vehicle_ids": [
+        "map_cross_01",
+        "map_cross_02",
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "oncoming_01",
+        "oncoming_02",
+        "oncoming_03",
+        "traffic_01",
+        "traffic_02",
+        "traffic_03",
+        "traffic_04",
+        "traffic_05",
+        "traffic_06",
+        "traffic_07",
+        "traffic_08"
+      ]
+    }
+  },
+  "time_window_calibration": {
+    "schema": "vehiclearena-time-window-calibration-v6",
+    "method": "reference_max_sumo_terminal_or_last_event_plus_margin",
+    "max_successful_completion_s": 271.2,
+    "last_scheduled_event_s": 0.0,
+    "time_limit_s": 281.2,
+    "case_count": 1,
+    "successful_case_count": 1,
+    "reference_policy": "all_sumo",
+    "actor_configurations": [
+      "all_sumo"
+    ],
+    "registry_generated_at": "2026-09-23T15:04:07.355290+00:00"
+  }
+}

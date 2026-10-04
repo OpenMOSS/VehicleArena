@@ -1,0 +1,57 @@
+rules:
+- id: dark_period_enter
+  description: Turn on lights, dark theme, dim screen when entering dark period
+  domain: daynight
+  trigger:
+    state_change:
+      from:
+      - morning
+      - noon
+      - afternoon
+      to:
+      - dusk
+      - night
+      - dawn
+  expect:
+    actions:
+    - vw.lowBeamHeadlight.switch('on')
+    - vw.positionLight.carcontrol_positionLight_switch(True)
+    - vw.centerInformationDisplay.carcontrol_centerInformationDisplay_brightness_decrease(degree='large')
+    - vw.rearviewMirror.mode_autoAdjust(True)
+  tolerance:
+    skip:
+    - HUD.brightness_nits
+    - HUD.brightness_percentage
+    - centerInformationDisplay.brightness_settings.*
+    trend:
+      field_pattern: HUD.brightness_level
+      direction: decrease
+      baseline_field: HUD.brightness_level
+- id: dark_period_leave
+  description: Turn off lights, restore day theme when leaving dark period
+  domain: daynight
+  trigger:
+    state_change:
+      from:
+      - dusk
+      - night
+      - dawn
+      to:
+      - morning
+      - noon
+      - afternoon
+  expect:
+    actions:
+    - vw.lowBeamHeadlight.switch('off')
+    - vw.positionLight.carcontrol_positionLight_switch(False)
+    - vw.centerInformationDisplay.carcontrol_centerInformationDisplay_brightness_increase(degree='large')
+    - vw.rearviewMirror.mode_autoAdjust(False)
+  tolerance:
+    skip:
+    - HUD.brightness_nits
+    - HUD.brightness_percentage
+    - centerInformationDisplay.brightness_settings.*
+    trend:
+      field_pattern: HUD.brightness_level
+      direction: increase
+      baseline_field: HUD.brightness_level

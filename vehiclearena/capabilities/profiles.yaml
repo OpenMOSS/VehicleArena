@@ -1,0 +1,118 @@
+required_modules:
+  # These are world/driver contracts in the current architecture, not
+  # optional cabin equipment. Physical steering and braking remain available
+  # even when a cabin profile is sparse.
+  - navigation
+  - weather
+  - dayNight
+  - speedLimit
+  - map
+
+equipment_profiles:
+  full:
+    description: Complete equipment profile with every registered module.
+    include: ["*"]
+
+  executive:
+    description: Executive vehicle without a roof-mounted research LiDAR.
+    include: ["*"]
+    exclude:
+      - lidar
+
+  economy:
+    description: Compact vehicle without premium display and body equipment.
+    include: ["*"]
+    exclude:
+      - HUD
+      - overheadScreen
+      - video
+      - sunroof
+      - frontTrunk
+      - frontRadar
+      - rearRadar
+      - lidar
+
+  ride_hailing:
+    description: Service vehicle focused on navigation, communication and cabin comfort.
+    include: ["*"]
+    exclude:
+      - HUD
+      - overheadScreen
+      - video
+      - sunroof
+      - frontTrunk
+      - radio
+      - rearRadar
+      - lidar
+
+  freight:
+    description: Freight cab without passenger entertainment and premium body equipment.
+    include:
+      - airConditioner
+      - bluetooth
+      - broadcast
+      - centerInformationDisplay
+      - conversation
+      - door
+      - fogLight
+      - footPedal
+      - frontRadar
+      - fuelPort
+      - hazardLight
+      - highBeamHeadlight
+      - horn
+      - instrumentPanel
+      - lowBeamHeadlight
+      - navigation
+      - positionLight
+      - radio
+      - readingLight
+      - rearRadar
+      - rearviewMirror
+      - seat
+      - speedLimit
+      - steeringWheel
+      - sunshade
+      - tailLight
+      - turnSignal
+      - weather
+      - dayNight
+      - map
+      - window
+      - wiper
+
+chassis_profiles:
+  compact:
+    length_m: 4.25
+    width_m: 1.78
+    max_acceleration_mps2: 3.2
+    max_braking_mps2: 6.5
+    lane_change_duration_s: 3.2
+
+  sedan:
+    length_m: 4.60
+    width_m: 1.90
+    max_acceleration_mps2: 3.0
+    max_braking_mps2: 6.0
+    lane_change_duration_s: 3.5
+
+  suv:
+    length_m: 4.85
+    width_m: 2.00
+    max_acceleration_mps2: 2.7
+    max_braking_mps2: 6.0
+    lane_change_duration_s: 3.8
+
+  van:
+    length_m: 5.00
+    width_m: 1.95
+    max_acceleration_mps2: 2.4
+    max_braking_mps2: 5.8
+    lane_change_duration_s: 4.0
+
+  freight:
+    length_m: 7.50
+    width_m: 2.45
+    max_acceleration_mps2: 1.8
+    max_braking_mps2: 5.0
+    lane_change_duration_s: 4.8

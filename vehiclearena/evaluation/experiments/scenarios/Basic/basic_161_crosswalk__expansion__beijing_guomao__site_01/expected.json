@@ -1,0 +1,86 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_161_crosswalk__expansion__beijing_guomao__site_01",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 10,
+      "pedestrians": 1
+    },
+    {
+      "kind": "connector_crosswalk_conflict",
+      "vehicle": "ego",
+      "pedestrian": "pedestrian"
+    },
+    {
+      "kind": "scheduled_crosswalk_entry",
+      "vehicle": "ego",
+      "pedestrian": "pedestrian",
+      "ttc_s": 4.0,
+      "start_times_s": {
+        "pedestrian": 0.3
+      }
+    },
+    {
+      "kind": "weather_transition",
+      "initial_condition": "cloudy",
+      "target_condition": "rainy",
+      "at_s": 6.4,
+      "second_condition": null,
+      "second_at_s": null
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 8,
+      "longitudinal_cohort_minimum_count": 3,
+      "longitudinal_cohort_maximum_count": 5,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": 57.221,
+        "map_flow_02": 57.221,
+        "map_flow_03": 69.221,
+        "map_flow_04": 69.221
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n7259089831",
+        "map_flow_02": "n7259089831",
+        "map_flow_03": "n7259089831",
+        "map_flow_04": "n7259089831"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n36704941_n36704944::lane_0",
+      "longitudinal_cohort_maximum_offset_m": 72.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ],
+      "crossing_vehicle_ids": [],
+      "focal_route_lane_ids": [
+        "n36704941_n36704944::lane_0",
+        "n36704944_n7259089831::lane_2"
+      ],
+      "focal_connector_ids": [
+        "connector::n36704944::0"
+      ]
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

@@ -1,0 +1,506 @@
+{
+  "scenario_id": "basic_208_oncoming_stream__expansion__melbourne_cbd",
+  "name": "Basic study task 208: Three observed oncoming meetings [melbourne cbd]",
+  "road_network_id": "melbourne_cbd",
+  "difficulty": "controlled",
+  "total_time_s": 36.4,
+  "tick_interval_s": 2.0,
+  "physics_step_s": 0.1,
+  "vehicles": [
+    {
+      "vehicle_id": "ego",
+      "initial_node": "n2187770693",
+      "destination_node": "n2187874242",
+      "initial_lane": 2,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.1,
+        "speed_kmh": 28.0,
+        "target_speed_kmh": 28.0,
+        "desired_speed_kmh": 30.0,
+        "lane_id": "n2187770693_n2187874242::lane_2"
+      }
+    },
+    {
+      "vehicle_id": "oncoming_1",
+      "initial_node": "n2187874242",
+      "destination_node": "n2187770693",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.1,
+        "speed_kmh": 26.0,
+        "lane_id": "n2187770693_n2187874242::lane_0"
+      }
+    },
+    {
+      "vehicle_id": "oncoming_2",
+      "initial_node": "n2187874242",
+      "destination_node": "n2187770693",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.35,
+        "speed_kmh": 26.0,
+        "lane_id": "n2187770693_n2187874242::lane_0"
+      }
+    },
+    {
+      "vehicle_id": "oncoming_3",
+      "initial_node": "n2187874242",
+      "destination_node": "n2187770693",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.6,
+        "speed_kmh": 26.0,
+        "lane_id": "n2187770693_n2187874242::lane_0"
+      }
+    },
+    {
+      "vehicle_id": "map_flow_01",
+      "initial_node": "n2187770693",
+      "destination_node": "n2187874242",
+      "initial_lane": 2,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.159052,
+        "speed_kmh": 17.4,
+        "lane_id": "n2187770693_n2187874242::lane_2"
+      }
+    },
+    {
+      "vehicle_id": "map_flow_02",
+      "initial_node": "n2187770693",
+      "destination_node": "n2187874242",
+      "initial_lane": 3,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.15905,
+        "speed_kmh": 18.6,
+        "lane_id": "n2187770693_n2187874242::lane_3"
+      }
+    },
+    {
+      "vehicle_id": "map_flow_03",
+      "initial_node": "n2187770693",
+      "destination_node": "n2187874242",
+      "initial_lane": 2,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.040948,
+        "speed_kmh": 19.8,
+        "lane_id": "n2187770693_n2187874242::lane_2"
+      }
+    },
+    {
+      "vehicle_id": "map_route_01",
+      "initial_node": "n2187770693",
+      "destination_node": "n2187874242",
+      "initial_lane": 2,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.34,
+        "speed_kmh": 16.5,
+        "lane_id": "n2187770693_n2187874242::lane_2"
+      }
+    },
+    {
+      "vehicle_id": "map_route_02",
+      "initial_node": "n2187770693",
+      "destination_node": "n2187874242",
+      "initial_lane": 3,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.34,
+        "speed_kmh": 18.0,
+        "lane_id": "n2187770693_n2187874242::lane_3"
+      }
+    },
+    {
+      "vehicle_id": "map_route_03",
+      "initial_node": "n2187770693",
+      "destination_node": "n2187874242",
+      "initial_lane": 2,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.5,
+        "speed_kmh": 19.5,
+        "lane_id": "n2187770693_n2187874242::lane_2"
+      }
+    },
+    {
+      "vehicle_id": "map_route_04",
+      "initial_node": "n2187770693",
+      "destination_node": "n2187874242",
+      "initial_lane": 3,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.5,
+        "speed_kmh": 16.5,
+        "lane_id": "n2187770693_n2187874242::lane_3"
+      }
+    },
+    {
+      "vehicle_id": "map_route_05",
+      "initial_node": "n2187770693",
+      "destination_node": "n2187874242",
+      "initial_lane": 2,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.66,
+        "speed_kmh": 18.0,
+        "lane_id": "n2187770693_n2187874242::lane_2"
+      }
+    },
+    {
+      "vehicle_id": "map_flow_extra_01",
+      "initial_node": "n2187770693",
+      "destination_node": "n2187874242",
+      "initial_lane": 3,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.050788,
+        "speed_kmh": 17.4,
+        "lane_id": "n2187770693_n2187874242::lane_3"
+      }
+    },
+    {
+      "vehicle_id": "map_flow_extra_02",
+      "initial_node": "n2187770693",
+      "destination_node": "n2187874242",
+      "initial_lane": 2,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.247631,
+        "speed_kmh": 18.6,
+        "lane_id": "n2187770693_n2187874242::lane_2"
+      }
+    },
+    {
+      "vehicle_id": "map_flow_extra_03",
+      "initial_node": "n2187770693",
+      "destination_node": "n2187874242",
+      "initial_lane": 3,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.247623,
+        "speed_kmh": 19.8,
+        "lane_id": "n2187770693_n2187874242::lane_3"
+      }
+    }
+  ],
+  "pedestrians": [],
+  "experiment_scene": {
+    "schema": "vehiclearena-experiment-scenes-v2",
+    "study": "basic",
+    "source_template_id": "traffic_oncoming_stream__expansion__melbourne_cbd",
+    "focal_vehicle_id": "ego",
+    "fixed_peer_vehicle_ids": [],
+    "sumo_background_vehicle_ids": [
+      "oncoming_1",
+      "oncoming_2",
+      "oncoming_3",
+      "map_flow_01",
+      "map_flow_02",
+      "map_flow_03",
+      "map_route_01",
+      "map_route_02",
+      "map_route_03",
+      "map_route_04",
+      "map_route_05",
+      "map_flow_extra_01",
+      "map_flow_extra_02",
+      "map_flow_extra_03"
+    ],
+    "sumo_background_pedestrian_ids": [],
+    "interaction_tags": [
+      "oncoming",
+      "meeting_traffic",
+      "opposite_direction",
+      "three_encounters",
+      "stable_weather_control",
+      "stable_daynight_control",
+      "environment_group_control",
+      "task_config_adapted",
+      "related_background_traffic",
+      "route_aligned_background",
+      "longitudinal_cohort_background",
+      "near_ego_same_destination_npc"
+    ],
+    "weather_profile": {
+      "mode": "stable_control",
+      "initial_condition": "sunny",
+      "target_condition": null,
+      "change_at_s": null,
+      "primary_condition": null,
+      "recovers_to_sunny": false,
+      "recovery_at_s": null,
+      "second_condition": null,
+      "second_change_at_s": null,
+      "conditions": [
+        "sunny"
+      ],
+      "climate_profile_id": "melbourne_cbd@1991-2020-v1:marine_no_snow",
+      "climate_month": null
+    },
+    "daynight_profile": {
+      "mode": "stable_control",
+      "initial_period": "noon",
+      "target_period": null,
+      "change_at_s": null,
+      "second_period": null,
+      "second_change_at_s": null,
+      "period_sequence": [
+        "noon"
+      ],
+      "climate_month": null
+    },
+    "environment_group": "control",
+    "network": "melbourne_cbd",
+    "runtime_compatibility": {
+      "task_config_revision": "task-config-native-sumo-v2"
+    },
+    "task_migration": {
+      "revision": "task-config-native-sumo-v2",
+      "changes": [
+        {
+          "kind": "native_lane_choice",
+          "entities": [
+            "oncoming_1",
+            "oncoming_2",
+            "oncoming_3"
+          ]
+        }
+      ],
+      "original_setup_assertions": [
+        {
+          "kind": "entity_count",
+          "vehicles": 4,
+          "pedestrians": 0
+        },
+        {
+          "kind": "ordinary_oncoming_stream",
+          "entity": "ego",
+          "peer_ids": [
+            "oncoming_1",
+            "oncoming_2",
+            "oncoming_3"
+          ],
+          "ego_lane_id": "n2187770693_n2187874242::lane_2",
+          "opposing_lane_id": "n2187770693_n2187874242::lane_0",
+          "peer_progresses": [
+            0.1,
+            0.35,
+            0.6
+          ],
+          "minimum_road_length_m": 180.0
+        }
+      ],
+      "not_equivalent_to_dynamic_tasks": true
+    },
+    "related_background_traffic": {
+      "schema": "vehiclearena-related-background-v1",
+      "minimum_count": 11,
+      "base_minimum_count": 5,
+      "longitudinal_cohort_minimum_count": 6,
+      "longitudinal_cohort_maximum_count": 8,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": 12.0,
+        "map_flow_02": 12.0,
+        "map_flow_03": -12.0,
+        "map_flow_extra_01": -10.000666,
+        "map_flow_extra_02": 30.000096,
+        "map_flow_extra_03": 29.999356
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n2187874242",
+        "map_flow_02": "n2187874242",
+        "map_flow_03": "n2187874242",
+        "map_flow_extra_01": "n2187874242",
+        "map_flow_extra_02": "n2187874242",
+        "map_flow_extra_03": "n2187874242"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n2187770693_n2187874242::lane_2",
+      "longitudinal_cohort_maximum_offset_m": 180.0,
+      "longitudinal_cohort_destination_policy": "focal_destination",
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "supplemental_route_aligned_vehicle_ids": [
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ],
+      "crossing_vehicle_ids": [],
+      "vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "relation_definition": {
+        "longitudinal_cohort": "starts near the focal vehicle on its same-direction start segment, or just beyond a compact pedestrian connector, and shares the focal downstream destination; pedestrian followers terminate at the crossing approach so native traffic never pre-empts the authored pedestrian",
+        "route_aligned": "same physical road segment as the focal route; same-direction lanes are preferred and opposing lanes are used only as a compact-road fallback",
+        "crossing": "connector conflicts with a connector on the focal route",
+        "extra_near_ego_npc": "same-destination native SUMO vehicles placed on the focal start segment or its first downstream route lane"
+      },
+      "focal_route_keys": [
+        {
+          "segment_id": "n2187770693_n2187874242",
+          "direction": "forward"
+        }
+      ],
+      "focal_route_segment_ids": [
+        "n2187770693_n2187874242"
+      ],
+      "extra_near_ego_npc_count": 3,
+      "extra_near_ego_npc_ids": [
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "extra_near_ego_npc_clearance_m": 10.0,
+      "extra_near_ego_npc_max_route_offset_m": 180.0
+    }
+  },
+  "sumo_config": {
+    "npc_behavior": {
+      "schema": "native-npc-mixed-v1",
+      "seed": 42,
+      "vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05",
+        "oncoming_1",
+        "oncoming_2",
+        "oncoming_3"
+      ]
+    }
+  },
+  "time_window_calibration": {
+    "schema": "vehiclearena-time-window-calibration-v6",
+    "method": "reference_max_sumo_terminal_or_last_event_plus_margin",
+    "max_successful_completion_s": 26.4,
+    "last_scheduled_event_s": 0.0,
+    "time_limit_s": 36.4,
+    "case_count": 1,
+    "successful_case_count": 1,
+    "reference_policy": "all_sumo",
+    "actor_configurations": [
+      "all_sumo"
+    ],
+    "registry_generated_at": "2026-09-23T15:04:07.355290+00:00",
+    "margin_s": 10.0
+  }
+}

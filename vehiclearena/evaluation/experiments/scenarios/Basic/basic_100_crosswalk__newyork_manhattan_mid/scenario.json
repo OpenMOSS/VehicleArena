@@ -1,0 +1,420 @@
+{
+  "scenario_id": "basic_100_crosswalk__newyork_manhattan_mid",
+  "name": "Basic study task 100: Unsignalized pedestrian-yield baseline [newyork_manhattan_mid]",
+  "road_network_id": "newyork_manhattan_mid",
+  "difficulty": "controlled",
+  "total_time_s": 73.7,
+  "tick_interval_s": 2.0,
+  "physics_step_s": 0.1,
+  "vehicles": [
+    {
+      "vehicle_id": "ego",
+      "initial_node": "n100522479",
+      "destination_node": "n100522741",
+      "initial_lane": 1,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.751903,
+        "speed_kmh": 18.0,
+        "target_speed_kmh": 18.0,
+        "desired_speed_kmh": 30.0,
+        "lane_id": "n100522479_n9140654137::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n9140654137::0"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "map_flow_01",
+      "initial_node": "n100522479",
+      "destination_node": "n9140654137",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.666841,
+        "speed_kmh": 14.5,
+        "lane_id": "n100522479_n9140654137::lane_1"
+      }
+    },
+    {
+      "vehicle_id": "map_flow_02",
+      "initial_node": "n100522479",
+      "destination_node": "n9140654137",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.58178,
+        "speed_kmh": 15.5,
+        "lane_id": "n100522479_n9140654137::lane_1"
+      }
+    },
+    {
+      "vehicle_id": "map_flow_03",
+      "initial_node": "n100522479",
+      "destination_node": "n9140654137",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.496718,
+        "speed_kmh": 16.5,
+        "lane_id": "n100522479_n9140654137::lane_1"
+      }
+    },
+    {
+      "vehicle_id": "map_flow_04",
+      "initial_node": "n100522479",
+      "destination_node": "n9140654137",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.411656,
+        "speed_kmh": 14.5,
+        "lane_id": "n100522479_n9140654137::lane_1"
+      }
+    },
+    {
+      "vehicle_id": "map_route_01",
+      "initial_node": "n9140654137",
+      "destination_node": "n100522741",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.82,
+        "speed_kmh": 13.75,
+        "lane_id": "n100522741_n9140654137::lane_0"
+      }
+    },
+    {
+      "vehicle_id": "map_route_02",
+      "initial_node": "n100522479",
+      "destination_node": "n9140654137",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.18,
+        "speed_kmh": 15.0,
+        "lane_id": "n100522479_n9140654137::lane_1"
+      }
+    },
+    {
+      "vehicle_id": "map_route_03",
+      "initial_node": "n9140654137",
+      "destination_node": "n100522741",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.18,
+        "speed_kmh": 16.25,
+        "lane_id": "n100522741_n9140654137::lane_0"
+      }
+    },
+    {
+      "vehicle_id": "map_route_04",
+      "initial_node": "n9140654137",
+      "destination_node": "n100522741",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.34,
+        "speed_kmh": 13.75,
+        "lane_id": "n100522741_n9140654137::lane_0"
+      }
+    },
+    {
+      "vehicle_id": "map_route_05",
+      "initial_node": "n9140654137",
+      "destination_node": "n100522741",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.5,
+        "speed_kmh": 15.0,
+        "lane_id": "n100522741_n9140654137::lane_0"
+      }
+    }
+  ],
+  "pedestrians": [
+    {
+      "ped_id": "pedestrian",
+      "initial_node": "n9140654137",
+      "destination_node": "n100522741",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "speed": 1.4,
+      "start_time": 0.043333333333333335,
+      "is_evaluated": false,
+      "collision_radius_m": 0.4,
+      "initial_physical_state": {
+        "progress": 0.0,
+        "speed_mps": 1.4,
+        "crosswalk_id": "crosswalk::n9140654137::0"
+      }
+    }
+  ],
+  "experiment_scene": {
+    "schema": "vehiclearena-experiment-scenes-v2",
+    "study": "basic",
+    "source_template_id": "baseline_crosswalk__newyork_manhattan_mid",
+    "focal_vehicle_id": "ego",
+    "fixed_peer_vehicle_ids": [],
+    "sumo_background_vehicle_ids": [
+      "map_flow_01",
+      "map_flow_02",
+      "map_flow_03",
+      "map_flow_04",
+      "map_route_01",
+      "map_route_02",
+      "map_route_03",
+      "map_route_04",
+      "map_route_05"
+    ],
+    "sumo_background_pedestrian_ids": [
+      "pedestrian"
+    ],
+    "interaction_tags": [
+      "crosswalk",
+      "vehicle_pedestrian",
+      "unsignalized",
+      "pedestrian_yield",
+      "through",
+      "stable_weather_control",
+      "stable_daynight_control",
+      "environment_group_control",
+      "task_config_adapted",
+      "fixed_time_pedestrian_entry",
+      "related_background_traffic",
+      "route_aligned_background",
+      "longitudinal_cohort_background"
+    ],
+    "weather_profile": {
+      "mode": "stable_control",
+      "initial_condition": "sunny",
+      "target_condition": null,
+      "change_at_s": null,
+      "primary_condition": null,
+      "recovers_to_sunny": false,
+      "recovery_at_s": null,
+      "second_condition": null,
+      "second_change_at_s": null,
+      "conditions": [
+        "sunny"
+      ],
+      "climate_profile_id": "newyork_manhattan_mid@1991-2020-v1:northern_continental",
+      "climate_month": null
+    },
+    "daynight_profile": {
+      "mode": "stable_control",
+      "initial_period": "noon",
+      "target_period": null,
+      "change_at_s": null,
+      "second_period": null,
+      "second_change_at_s": null,
+      "period_sequence": [
+        "noon"
+      ],
+      "climate_month": null
+    },
+    "environment_group": "control",
+    "network": "newyork_manhattan_mid",
+    "runtime_compatibility": {
+      "task_config_revision": "task-config-native-sumo-v2"
+    },
+    "task_migration": {
+      "revision": "task-config-native-sumo-v2",
+      "changes": [
+        {
+          "kind": "fixed_pedestrian_spawn",
+          "entity": "pedestrian",
+          "start_time_s": 2.6,
+          "original_trigger": {
+            "vehicle_id": "ego",
+            "ttc_s": 4.0
+          }
+        }
+      ],
+      "original_setup_assertions": [
+        {
+          "kind": "entity_count",
+          "vehicles": 1,
+          "pedestrians": 1
+        },
+        {
+          "kind": "connector_crosswalk_conflict",
+          "vehicle": "ego",
+          "pedestrian": "pedestrian"
+        },
+        {
+          "kind": "unsignalized_pedestrian_ttc",
+          "vehicle": "ego",
+          "pedestrian": "pedestrian",
+          "ttc_s": 4.0
+        }
+      ],
+      "not_equivalent_to_dynamic_tasks": true
+    },
+    "purpose": "Fixed-time pedestrian entry; vehicle NPCs remain SUMO-native.",
+    "related_background_traffic": {
+      "schema": "vehiclearena-related-background-v1",
+      "minimum_count": 8,
+      "base_minimum_count": 5,
+      "longitudinal_cohort_minimum_count": 3,
+      "longitudinal_cohort_maximum_count": 5,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": -12.0,
+        "map_flow_02": -24.0,
+        "map_flow_03": -36.0,
+        "map_flow_04": -48.0
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n9140654137",
+        "map_flow_02": "n9140654137",
+        "map_flow_03": "n9140654137",
+        "map_flow_04": "n9140654137"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n100522479_n9140654137::lane_1",
+      "longitudinal_cohort_maximum_offset_m": 72.0,
+      "longitudinal_cohort_destination_policy": "pedestrian_approach_or_focal_destination",
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ],
+      "supplemental_route_aligned_vehicle_ids": [
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ],
+      "crossing_vehicle_ids": [],
+      "vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ],
+      "relation_definition": {
+        "longitudinal_cohort": "starts near the focal vehicle on its same-direction start segment, or just beyond a compact pedestrian connector, and shares the focal downstream destination; pedestrian followers terminate at the crossing approach so native traffic never pre-empts the authored pedestrian",
+        "route_aligned": "same physical road segment as the focal route; same-direction lanes are preferred and opposing lanes are used only as a compact-road fallback",
+        "crossing": "connector conflicts with a connector on the focal route"
+      },
+      "focal_route_keys": [
+        {
+          "segment_id": "n100522479_n9140654137",
+          "direction": "forward"
+        },
+        {
+          "segment_id": "n100522741_n9140654137",
+          "direction": "forward"
+        }
+      ],
+      "focal_route_segment_ids": [
+        "n100522479_n9140654137",
+        "n100522741_n9140654137"
+      ]
+    }
+  },
+  "sumo_config": {
+    "npc_behavior": {
+      "schema": "native-npc-mixed-v1",
+      "seed": 42,
+      "vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ]
+    }
+  },
+  "time_window_calibration": {
+    "schema": "vehiclearena-time-window-calibration-v6",
+    "method": "reference_max_sumo_terminal_or_last_event_plus_margin",
+    "max_successful_completion_s": 63.7,
+    "last_scheduled_event_s": 2.6,
+    "time_limit_s": 73.7,
+    "case_count": 1,
+    "successful_case_count": 1,
+    "reference_policy": "all_sumo",
+    "actor_configurations": [
+      "all_sumo"
+    ],
+    "registry_generated_at": "2026-09-23T15:04:07.355290+00:00",
+    "margin_s": 10.0
+  }
+}

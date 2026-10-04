@@ -1,0 +1,164 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "multi_053_newmap_merge__newyork_manhattan_mid__all_fast",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 14,
+      "pedestrians": 0
+    },
+    {
+      "kind": "localized_merge_stream",
+      "entity": "ego",
+      "stream_entities": [
+        "merge_lead",
+        "merge_follower",
+        "merge_tail"
+      ],
+      "ego_connector_id": "connector::n11337295604::2",
+      "stream_connector_id": "connector::n11337295604::12",
+      "ego_setback_m": 45.0,
+      "stream_setbacks_m": [
+        35.0,
+        75.0,
+        115.0
+      ],
+      "expected_stream_count": 3,
+      "all_entities_evaluated": true
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 8,
+      "longitudinal_cohort_minimum_count": 3,
+      "longitudinal_cohort_maximum_count": 5,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": 12.0,
+        "map_flow_02": 12.0,
+        "map_flow_03": -12.0,
+        "map_flow_04": -12.0,
+        "map_flow_05": 0.0
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n11337295608",
+        "map_flow_02": "n11337295608",
+        "map_flow_03": "n11337295608",
+        "map_flow_04": "n11337295608",
+        "map_flow_05": "n11337295608"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n11337295604_n42445916::lane_3",
+      "longitudinal_cohort_maximum_offset_m": 72.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03"
+      ],
+      "crossing_vehicle_ids": [
+        "map_cross_01",
+        "map_cross_02"
+      ],
+      "focal_route_lane_ids": [
+        "n11337295604_n42445916::lane_3",
+        "n11337295604_n11337295608::lane_4"
+      ],
+      "focal_connector_ids": [
+        "connector::n11337295604::2"
+      ]
+    },
+    {
+      "kind": "weather_transition",
+      "initial_condition": "cloudy",
+      "target_condition": "snowy",
+      "at_s": 17.3,
+      "second_condition": "heavy_snow",
+      "second_at_s": 57.0
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  },
+  "runtime_acceptance": [
+    {
+      "kind": "minimum_merge_encounters",
+      "entity": "ego",
+      "peer_ids": [
+        "merge_lead",
+        "merge_follower",
+        "merge_tail"
+      ],
+      "minimum_distinct_peers": 3,
+      "distance_m": 45.0
+    },
+    {
+      "kind": "connector_entry_order",
+      "order": [
+        "merge_lead",
+        "ego",
+        "merge_follower",
+        "merge_tail"
+      ]
+    },
+    {
+      "kind": "merge_completed",
+      "entity": "ego",
+      "target_lane_id": "n11337295604_n11337295608::lane_4"
+    },
+    {
+      "kind": "collision_free",
+      "entities": [
+        "ego",
+        "merge_lead",
+        "merge_follower",
+        "merge_tail"
+      ]
+    },
+    {
+      "kind": "route_arrival",
+      "entities": [
+        "ego",
+        "merge_lead",
+        "merge_follower",
+        "merge_tail"
+      ]
+    }
+  ],
+  "hardness_profile": {
+    "schema": "vehiclearena-hard-multillm-new-map-v1",
+    "family": "merge",
+    "label": "all_fast",
+    "network": "newyork_manhattan_mid",
+    "mechanism": "all four agents approach the common merge at high speed",
+    "causal_chain_target": "an unsafe or delayed merge blocks the connector and raises queue time",
+    "initial_llm_speeds_kmh": [
+      24.0,
+      24.0,
+      24.0,
+      24.0
+    ],
+    "llm_vehicle_ids": [
+      "ego",
+      "merge_lead",
+      "merge_follower",
+      "merge_tail"
+    ],
+    "base_time_limit_s": 50.0,
+    "calibration_status": "calibrated",
+    "time_limit_s": 83.9
+  }
+}

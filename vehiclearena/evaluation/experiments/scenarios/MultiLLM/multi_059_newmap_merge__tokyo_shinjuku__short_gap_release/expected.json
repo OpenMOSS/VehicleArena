@@ -1,0 +1,172 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "multi_059_newmap_merge__tokyo_shinjuku__short_gap_release",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 14,
+      "pedestrians": 0
+    },
+    {
+      "kind": "localized_merge_stream",
+      "entity": "ego",
+      "stream_entities": [
+        "merge_lead",
+        "merge_follower",
+        "merge_tail"
+      ],
+      "ego_connector_id": "connector::n475758010::3",
+      "stream_connector_id": "connector::n475758010::6",
+      "ego_setback_m": 45.0,
+      "stream_setbacks_m": [
+        35.0,
+        75.0,
+        99.818
+      ],
+      "expected_stream_count": 3,
+      "all_entities_evaluated": true
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 8,
+      "longitudinal_cohort_minimum_count": 3,
+      "longitudinal_cohort_maximum_count": 5,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": 12.0,
+        "map_flow_02": -12.0,
+        "map_flow_03": 24.0,
+        "map_flow_04": -24.0,
+        "map_flow_05": 36.0
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n475757606",
+        "map_flow_02": "n475757606",
+        "map_flow_03": "n475757606",
+        "map_flow_04": "n475757606",
+        "map_flow_05": "n475757606"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n475757778_n475758010::lane_1",
+      "longitudinal_cohort_maximum_offset_m": 72.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04"
+      ],
+      "crossing_vehicle_ids": [
+        "map_cross_01"
+      ],
+      "focal_route_lane_ids": [
+        "n475757778_n475758010::lane_1",
+        "n475757606_n475758010::lane_0"
+      ],
+      "focal_connector_ids": [
+        "connector::n475758010::3"
+      ]
+    },
+    {
+      "kind": "weather_transition",
+      "initial_condition": "cloudy",
+      "target_condition": "snowy",
+      "at_s": 16.6,
+      "second_condition": "cloudy",
+      "second_at_s": 29.5
+    },
+    {
+      "kind": "daynight_transition",
+      "initial_period": "morning",
+      "target_period": "noon",
+      "at_s": 8.5,
+      "second_period": "afternoon",
+      "second_at_s": 29.5
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  },
+  "runtime_acceptance": [
+    {
+      "kind": "minimum_merge_encounters",
+      "entity": "ego",
+      "peer_ids": [
+        "merge_lead",
+        "merge_follower",
+        "merge_tail"
+      ],
+      "minimum_distinct_peers": 3,
+      "distance_m": 45.0
+    },
+    {
+      "kind": "connector_entry_order",
+      "order": [
+        "merge_lead",
+        "ego",
+        "merge_follower",
+        "merge_tail"
+      ]
+    },
+    {
+      "kind": "merge_completed",
+      "entity": "ego",
+      "target_lane_id": "n475757606_n475758010::lane_0"
+    },
+    {
+      "kind": "collision_free",
+      "entities": [
+        "ego",
+        "merge_lead",
+        "merge_follower",
+        "merge_tail"
+      ]
+    },
+    {
+      "kind": "route_arrival",
+      "entities": [
+        "ego",
+        "merge_lead",
+        "merge_follower",
+        "merge_tail"
+      ]
+    }
+  ],
+  "hardness_profile": {
+    "schema": "vehiclearena-hard-multillm-new-map-v1",
+    "family": "merge",
+    "label": "short_gap_release",
+    "network": "tokyo_shinjuku",
+    "mechanism": "a short moving gap separates ego from two fast followers",
+    "causal_chain_target": "a single lane entry or brake changes the entire local platoon",
+    "initial_llm_speeds_kmh": [
+      24.0,
+      24.0,
+      24.0,
+      24.0
+    ],
+    "llm_vehicle_ids": [
+      "ego",
+      "merge_lead",
+      "merge_follower",
+      "merge_tail"
+    ],
+    "base_time_limit_s": 50.0,
+    "calibration_status": "calibrated",
+    "time_limit_s": 46.7
+  }
+}

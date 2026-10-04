@@ -1,0 +1,7 @@
+{
+  "schema": "vehiclearena-experiment-parameters-v2",
+  "map_coverage": {
+    "minimum_connector_conflict_angle_deg": 25.0,
+    "minimum_connector_source_length_m": 35.0
+  }
+}

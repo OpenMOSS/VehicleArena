@@ -1,0 +1,889 @@
+# Physical speed/stop intent belongs to the trajectory evaluator.  Cabin
+# evaluation still scores navigation route, voice, overlay and destination
+# state, but it must not penalise a driver merely for issuing a driving command.
+global_skip_fields:
+- navigation.desired_speed
+- navigation.is_stopped
+
+rules:
+- id: nav_start
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages: []
+  expect:
+    actions:
+    - vw.navigation.navigation_route_plan('{dest}')
+- id: nav_change_dest
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Change destination to the airport.
+      - Go to the mall instead.
+  expect:
+    actions:
+    - vw.navigation.navigation_destination_change('{dest}')
+  message_params:
+    Change destination to the airport.:
+      dest: the airport
+    Go to the mall instead.:
+      dest: the mall
+- id: nav_stop
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Stop navigating, I know where I'm going.
+      - Cancel the navigation please.
+  expect:
+    actions:
+    - vw.navigation.navigation_exit()
+- id: nav_add_waypoint
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Stop by the gas station on the way.
+      - Add a stop at the pharmacy.
+  expect:
+    actions:
+    - vw.navigation.navigation_midWay_add(['{waypoint}'])
+  message_params:
+    Stop by the gas station on the way.:
+      waypoint: the gas station
+    Add a stop at the pharmacy.:
+      waypoint: the pharmacy
+- id: request_u_turn
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - We're going the wrong way, make a U-turn.
+      - Turn around, we missed it.
+      - Please U-turn here.
+  expect:
+    actions:
+    - vw.navigation.navigation_u_turn()
+- id: heating
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - It's cold, can you turn on the heater?
+      - I'm freezing! Turn on the heat please.
+      - It's getting cold in here, warm things up please.
+      vague:
+      - Hmm, it's getting a bit cold in here, isn't it?
+      - Is it just me or is it getting cold in here?
+      - Brrr, it's freezing... the temperature has really dropped.
+      - It's so chilly, can we warm up the cabin a little?
+  expect:
+    actions:
+    - vw.airConditioner.switch(['all'], True)
+    - vw.airConditioner.heat_mode_switch(True)
+    - vw.seat.carcontrol_carSeat_heater_switch(True)
+  tolerance:
+    skip:
+    - airConditioner.ac_states.*.temperature
+    - airConditioner.ac_states.*.wind_speed
+    - '*.settings.temperature'
+    any_of:
+    - vw.seat.carcontrol_carSeat_heater_switch(True)
+    - vw.airConditioner.temperature_increase(['all'], degree='small')
+    - vw.steeringWheel.carcontrol_steeringWheel_heater_switch(True)
+- id: cooling
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - It's too hot in here, can you turn on the AC?
+      - Cool it down please, it's boiling.
+      - Turn on the AC full blast and cool it down.
+      vague:
+      - It's getting really hot in here, don't you think?
+      - Wow, it's too warm in here...
+      - Is there a way to cool down the cabin a bit?
+  expect:
+    actions:
+    - vw.airConditioner.switch(['all'], True)
+    - vw.airConditioner.cool_mode_switch(True)
+  tolerance:
+    skip:
+    - airConditioner.ac_states.*.temperature
+    - airConditioner.ac_states.*.wind_speed
+    - '*.settings.temperature'
+    any_of:
+    - vw.seat.carcontrol_carSeat_ventilation_switch(True)
+    - vw.airConditioner.temperature_decrease(['all'], degree='small')
+    - vw.window.carcontrol_window_switch(["driver's seat"], True)
+    - vw.airConditioner.auto_mode_switch(True)
+- id: defrost
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - The windshield is fogging up, turn on the defrost!
+      - I can barely see, please defrost the windshield.
+      vague:
+      - Ugh, I can barely see through the windshield, it's all fogging up...
+      - The windshield is getting misty, I can barely see the road...
+  expect:
+    actions:
+    - vw.airConditioner.switch(['all'], True)
+    - vw.airConditioner.defrost_mode_switch(True)
+  tolerance:
+    any_of:
+    - vw.wiper.carcontrol_wiperBlade_switch(True, 'front')
+- id: wiper_on
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn on the wipers.
+      - 下雨了，开下雨刷
+  expect:
+    actions:
+    - vw.wiper.carcontrol_wiperBlade_switch(True, 'front')
+- id: ac_off
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn off the AC.
+      - Stop the air conditioning please.
+  expect:
+    actions:
+    - vw.airConditioner.switch(['all'], False)
+- id: temp_increase
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Make it a bit warmer please.
+      - Increase the temperature a few degrees.
+  expect:
+    actions:
+    - vw.airConditioner.switch(['all'], True)
+    - vw.airConditioner.temperature_increase(['all'], degree='small')
+  tolerance:
+    any_of:
+    - vw.airConditioner.auto_mode_switch(True)
+    trend:
+      field_pattern: airConditioner.ac_states.*.temperature
+      direction: increase
+      baseline_field: airConditioner._ac_states.*.temperature
+- id: temp_decrease
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Make it a bit cooler please.
+      - Lower the temperature a few degrees.
+  expect:
+    actions:
+    - vw.airConditioner.switch(['all'], True)
+    - vw.airConditioner.temperature_decrease(['all'], degree='small')
+  tolerance:
+    any_of:
+    - vw.airConditioner.auto_mode_switch(True)
+    trend:
+      field_pattern: airConditioner.ac_states.*.temperature
+      direction: decrease
+      baseline_field: airConditioner._ac_states.*.temperature
+- id: temp_set
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Set the temperature to 22 degrees.
+      - Set the temperature to 26 degrees.
+      - Set the temperature to 18 degrees.
+  expect:
+    actions:
+    - vw.airConditioner.switch(['all'], True)
+    - vw.airConditioner.temperature_set(['all'], value={temp}, unit='celsius')
+  message_params:
+    Set the temperature to 22 degrees.:
+      temp: 22
+    Set the temperature to 26 degrees.:
+      temp: 26
+    Set the temperature to 18 degrees.:
+      temp: 18
+- id: recirculate
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Switch to recirculation mode, close the vents.
+      - Turn on internal circulation please.
+  expect:
+    actions:
+    - vw.airConditioner.switch(['all'], True)
+    - vw.airConditioner.recycle_mode_switch('internal circulation')
+- id: fresh_air
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Switch to fresh air mode, open the vents.
+      - Turn on outside air please.
+  expect:
+    actions:
+    - vw.airConditioner.switch(['all'], True)
+    - vw.airConditioner.recycle_mode_switch('external circulation')
+- id: air_purify
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - It's really stuffy in here, the air feels stale.
+      - Turn on air purification please.
+  expect:
+    actions:
+    - vw.airConditioner.switch(['all'], True)
+    - vw.airConditioner.purification_switch('on')
+- id: fan_down
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - The fan is too strong, lower it.
+      - Less airflow please.
+  expect:
+    actions:
+    - vw.airConditioner.switch(['all'], True)
+    - vw.airConditioner.wind_speed_decrease(['all'], degree='large')
+- id: fan_up
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - More airflow please, blow harder.
+      - Increase the fan speed.
+  expect:
+    actions:
+    - vw.airConditioner.switch(['all'], True)
+    - vw.airConditioner.wind_speed_increase(['all'], degree='large')
+- id: seat_heater
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Warm my seat please.
+      - Can you turn on the seat heater?
+      vague:
+      - My seat feels like a block of ice, it's so cold...
+      - The seat is freezing, can you warm my seat up?
+  expect:
+    actions:
+    - vw.seat.carcontrol_carSeat_heater_switch(True)
+  tolerance:
+    any_of:
+    - vw.airConditioner.switch(['all'], True)
+    - vw.airConditioner.heat_mode_switch(True)
+    - vw.airConditioner.temperature_increase(['all'], degree='small')
+    trend:
+      field_pattern: airConditioner.ac_states.*.temperature
+      direction: increase
+      baseline_field: airConditioner._ac_states.*.temperature
+- id: seat_heater_off
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn off the seat heater.
+      - Stop heating the seat.
+  expect:
+    actions:
+    - vw.seat.carcontrol_carSeat_heater_switch(False)
+- id: seat_ventilation
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn on seat ventilation, my seat is too warm.
+      - Ventilate the seat please, cool it down.
+  expect:
+    actions:
+    - vw.seat.carcontrol_carSeat_ventilation_switch(True)
+- id: massage
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - My back is sore, can you turn on the seat massage?
+      - Turn on the massage please, I'm stiff.
+      vague:
+      - Ugh, my shoulders are really tense from the drive...
+      - This long drive is killing my back...
+  expect:
+    actions:
+    - vw.seat.carcontrol_carSeat_massager_switch(True)
+- id: massage_off
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn off the massage, that's enough.
+      - Stop the massage please.
+  expect:
+    actions:
+    - vw.seat.carcontrol_carSeat_massager_switch(False)
+- id: seat_recline
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Recline my seat a bit, I want to lean back.
+      - Tilt the seat back please.
+  expect:
+    actions:
+    - vw.seat.carcontrol_carSeatBackrest_angle_increase(degree='large')
+  tolerance:
+    any_of:
+    - vw.seat.carcontrol_carSeatBackrest_angle_increase(degree='little')
+    - vw.seat.carcontrol_carSeatBackrest_angle_increase(degree='tiny')
+- id: seat_upright
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Straighten the seat, more upright please.
+      - Sit me up.
+  expect:
+    actions:
+    - vw.seat.carcontrol_carSeatBackrest_angle_decrease(degree='large')
+  tolerance:
+    any_of:
+    - vw.seat.carcontrol_carSeatBackrest_angle_decrease(degree='little')
+    - vw.seat.carcontrol_carSeatBackrest_angle_decrease(degree='tiny')
+- id: music_play
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Can you play some music? Something relaxing.
+      - Play some music please.
+      - Put on some music and show the lyrics please.
+      vague:
+      - It's so quiet in here... maybe play some music?
+      - The drive feels a bit boring, how about some music?
+      - Could we play some tunes? I could use some entertainment.
+  expect:
+    actions:
+    - vw.music.set_is_playing(True)
+  tolerance:
+    skip:
+    - music.current_playlist*
+    - '*.settings.sound_channel'
+- id: music_play_favorite
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Play my favorites.
+      - Play my favorite playlist.
+  expect:
+    actions:
+    - vw.music.music_favorite_play()
+- id: music_lyrics
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Show the lyrics please.
+      - Can you display the lyrics?
+  expect:
+    actions:
+    - vw.music.music_player_showLyric(True)
+- id: music_shuffle
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Put it on shuffle.
+      - Play it on shuffle mode.
+  expect:
+    actions:
+    - vw.music.music_player_setMode('Shuffle Play')
+- id: music_off
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn off the music, I need to focus.
+      - Stop the music please.
+  expect:
+    actions:
+    - vw.music.set_is_playing(False)
+- id: music_volume_down
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Lower the music volume, it's too loud.
+      - Turn down the music a bit.
+  expect:
+    actions:
+    - vw.music.music_soundVolume_decrease(degree='large')
+  tolerance:
+    trend:
+      field_pattern: '*.settings.volume'
+      direction: decrease
+      baseline_field: music._settings.volume
+- id: music_volume_up
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn up the music, I can barely hear it.
+      - Crank it up, louder music please.
+  expect:
+    actions:
+    - vw.music.music_soundVolume_increase(degree='large')
+  tolerance:
+    trend:
+      field_pattern: '*.settings.volume'
+      direction: increase
+      baseline_field: music._settings.volume
+- id: music_next
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Next song please, I don't like this one.
+      - Skip this song.
+  expect:
+    actions:
+    - vw.music.music_playList_switch('next')
+- id: music_repeat
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Repeat this song, I love it!
+      - Play this on repeat.
+  expect:
+    actions:
+    - vw.music.music_player_setMode('Single Repeat')
+- id: radio_play
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn on the radio, I want to listen to FM.
+      - Play the radio please.
+      - Switch to radio.
+  expect:
+    actions:
+    - vw.radio.radio_favorite_play()
+  tolerance:
+    skip:
+    - '*.settings.sound_channel'
+    - radio.current_station*
+    - radio.history*
+- id: radio_off
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn off the radio.
+      - Stop the radio please.
+  expect:
+    actions:
+    - vw.radio.radio_play_stop()
+- id: window_open
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Open my window, I want some fresh air.
+      - Can you open the window please?
+      vague:
+      - The air in here feels kind of stale... can we let some air in?
+      - It would be nice to get some fresh air in here...
+  expect:
+    actions:
+    - vw.window.carcontrol_window_switch(["driver's seat"], True)
+  tolerance:
+    any_of:
+    - vw.sunroof.carcontrol_sunroof_switch('open')
+    - vw.airConditioner.switch(['all'], True)
+    - vw.airConditioner.auto_mode_switch(True)
+- id: window_close
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Close all the windows please.
+      - Can you close the windows?
+      vague:
+      - It's getting drafty, can you close the window?
+      - The wind is really getting in, please close the window.
+  expect:
+    actions:
+    - vw.window.carcontrol_window_switch(["driver's seat"], False)
+- id: window_child_lock
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn on the window child lock.
+      - Lock the windows for the kids.
+  expect:
+    actions:
+    - vw.window.carcontrol_window_mode_childSafetyLock(True)
+- id: sunroof_open
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Open the sunroof, I want to see the sky.
+      - Can you open the sunroof?
+  expect:
+    actions:
+    - vw.sunroof.carcontrol_sunroof_switch('open')
+- id: sunroof_close
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Close the sunroof please.
+      - Shut the sunroof.
+  expect:
+    actions:
+    - vw.sunroof.carcontrol_sunroof_switch('close')
+- id: sunshade_open
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Open the sunshade, I want more light.
+      - Retract the shade please.
+  expect:
+    actions:
+    - vw.sunshade.carcontrol_sunshade_switch('open')
+- id: sunshade_close
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - The sun is in my eyes, close the sunshade.
+      - Pull the shade please, it's too bright.
+      - Block the sun please.
+  expect:
+    actions:
+    - vw.sunshade.carcontrol_sunshade_switch('close')
+- id: door_lock
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Lock all the doors please.
+      - Can you lock the doors?
+  expect:
+    actions:
+    - vw.door.carcontrol_carDoor_lock_switch(True, ['all'])
+- id: door_unlock
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Unlock the doors please.
+      - Can you unlock the doors?
+  expect:
+    actions:
+    - vw.door.carcontrol_carDoor_lock_switch(False, ['all'])
+- id: door_child_safety
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn on child safety lock, kids in the back.
+      - Enable childproof locks please.
+  expect:
+    actions:
+    - vw.door.carcontrol_carDoor_mode_childSafetyLock(True)
+- id: trunk_open
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Pop the trunk please.
+      - Open the trunk.
+  expect:
+    actions:
+    - vw.trunk.carcontrol_trunk_lock_switch(False)
+    - vw.trunk.carcontrol_trunk_switch('open')
+- id: trunk_close
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Close the trunk please.
+      - Shut the trunk.
+  expect:
+    actions:
+    - vw.trunk.carcontrol_trunk_switch('close')
+- id: high_beam_on
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn on the high beams, it's really dark.
+      - Flash the lights, brights on.
+  expect:
+    actions:
+    - vw.highBeamHeadlight.switch(True)
+- id: high_beam_off
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn off the high beams.
+      - Dim the lights please, brights off.
+  expect:
+    actions:
+    - vw.highBeamHeadlight.switch(False)
+- id: hazard_on
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn on the hazard lights, I'm pulling over.
+      - Turn on the flashers please.
+  expect:
+    actions:
+    - vw.hazardLight.switch(True)
+- id: hazard_off
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn off the hazard lights.
+      - Stop the hazard flashers.
+  expect:
+    actions:
+    - vw.hazardLight.switch(False)
+- id: reading_light_on
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn on the reading light please.
+      - Turn on the overhead light, I need to see.
+      - Cabin light on please.
+  expect:
+    actions:
+    - vw.readingLight.carcontrol_readingLight_switch(['passenger seat'], True)
+- id: reading_light_off
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn off the reading light.
+      - Cabin light off please.
+  expect:
+    actions:
+    - vw.readingLight.carcontrol_readingLight_switch(['passenger seat'], False)
+- id: hud_on
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn on the heads up display.
+      - Enable the HUD please.
+  expect:
+    actions:
+    - vw.HUD.carcontrol_HUD_switch(True)
+- id: hud_off
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn off the HUD.
+      - Disable the heads up display.
+  expect:
+    actions:
+    - vw.HUD.carcontrol_HUD_switch(False)
+- id: hud_brightness
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - The HUD is too bright, dim it.
+      - HUD brightness down please.
+  expect:
+    actions:
+    - vw.HUD.carcontrol_HUD_switch(True)
+    - vw.HUD.carcontrol_HUD_brightness_decrease(degree='large')
+- id: mirror_heat
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - The mirrors are fogging up, heat the mirrors.
+      - Can you defog the mirrors?
+  expect:
+    actions:
+    - vw.rearviewMirror.mode_heating(True)
+- id: mirror_fold
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Fold the mirrors in please.
+      - Retract the mirrors.
+  expect:
+    actions:
+    - vw.rearviewMirror.mode_autoFold(True)
+- id: mirror_antiglare
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - There's glare from behind, auto dim the mirror.
+      - Turn on anti-glare for the rearview mirror.
+  expect:
+    actions:
+    - vw.rearviewMirror.mode_autoAdjust(True)
+- id: steering_heat_on
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - The steering wheel is cold, warm it up.
+      - Turn on the steering wheel heater.
+  expect:
+    actions:
+    - vw.steeringWheel.carcontrol_steeringWheel_heater_switch(True)
+- id: steering_heat_off
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn off the steering wheel heater.
+      - Stop heating the steering wheel.
+  expect:
+    actions:
+    - vw.steeringWheel.carcontrol_steeringWheel_heater_switch(False)
+- id: screen_dim
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - The screen is too bright, dim it.
+      - Lower the screen brightness please.
+  expect:
+    actions:
+    - vw.centerInformationDisplay.carcontrol_centerInformationDisplay_brightness_decrease(degree='large')
+- id: screen_brighten
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - I can't see the screen, brighten it.
+      - Screen brightness up please.
+  expect:
+    actions:
+    - vw.centerInformationDisplay.carcontrol_centerInformationDisplay_brightness_increase(degree='large')
+- id: dark_theme
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Switch to dark mode please.
+      - Turn on night mode for the display.
+  expect:
+    actions:
+    - vw.centerInformationDisplay.carcontrol_centerInformationDisplay_theme_set('dark')
+- id: light_theme
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Switch to light mode.
+      - Turn on day mode for the display.
+  expect:
+    actions:
+    - vw.centerInformationDisplay.carcontrol_centerInformationDisplay_theme_set('light')
+- id: bluetooth_on
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn on bluetooth, I want to pair my phone.
+      - Enable bluetooth please.
+  expect:
+    actions:
+    - vw.bluetooth.carcontrol_connection_bluetooth_switch(True)
+- id: bluetooth_off
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Turn off bluetooth.
+      - Disconnect bluetooth please.
+  expect:
+    actions:
+    - vw.bluetooth.carcontrol_connection_bluetooth_switch(False)
+- id: phone_call
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Call Mom.
+      - Call John please.
+      - Dial the office.
+  expect:
+    actions:
+    - vw.conversation.conversation_phone_call('{contact}')
+  message_params:
+    Call Mom.:
+      contact: mom
+    Call John please.:
+      contact: john
+    Dial the office.:
+      contact: the office
+- id: hands_free
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Switch to hands free mode please.
+      - Turn on the speakerphone.
+  expect:
+    actions:
+    - vw.conversation.conversation_call_handsFree_switch(True)
+- id: video_play
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Play a video for the kids.
+      - Put on a video please.
+  expect:
+    actions:
+    - vw.video.video_favorite_play()
+  tolerance:
+    skip:
+    - '*.settings.sound_channel'
+- id: video_off
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages:
+      - Stop the video.
+      - Turn off the video please.
+  expect:
+    actions:
+    - vw.video.video_play_stop()
+- id: unsafe_*
+  domain: user_intent
+  trigger:
+    user_intent:
+      messages: []
+  expect:
+    actions:
+    - 'vw.broadcast.broadcast_safety_refusal(True, ''Refused: {category}'')'

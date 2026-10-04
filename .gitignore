@@ -1,0 +1,69 @@
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local credentials and runtime configuration
+.env
+.env.*
+!.env.example
+aliyun.md
+llm.md
+*.pem
+*.p12
+*.pfx
+*.key
+id_rsa*
+id_ed25519*
+credentials.json
+secrets.json
+
+# Generated experiment and rendering artifacts
+/vehiclearena-road-networks*.tar.gz
+/evaluation/
+/outputs/
+/tasks/
+/vehiclearena/evaluation/outputs/
+/vehiclearena/evaluation/runs/
+/vehiclearena/evaluation/experiment_runs/
+/vehiclearena/evaluation/experiment_manifests/
+/vehiclearena/evaluation/experiments/scenarios/map_coverage/
+/vehiclearena/evaluation/experiments/time_window_calibration_report.json
+*.log
+*.pid
+# Native-process crash dumps can contain credentials and large memory images.
+core
+core.[0-9]*
+*.core
+
+# Large road-network data is distributed as one separately downloaded bundle.
+# Keep road_networks/__init__.py tracked; only JSON data stays local.
+/vehiclearena/simulation/road_networks/*.json
+/offline_assets/
+/web3d/node_modules/
+
+# Internal drafts and dated implementation/incident notes stay local.
+/.codex/
+/design/
+/paper.md
+/docs/continuation-and-judge-plan.md
+/docs/lter-metric-review.md
+/docs/native-npc-behavior.md
+/docs/physics-and-tool-recovery.md
+/docs/request-satisfaction.md
+/docs/runtime-rollback.md
+/docs/sumo-connector-geometry.md
+
+# Build and editor artifacts
+build/
+dist/
+*.egg-info/
+.idea/
+.vscode/
+.DS_Store

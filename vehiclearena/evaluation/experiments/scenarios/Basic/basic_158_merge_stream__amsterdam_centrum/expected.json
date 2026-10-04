@@ -1,0 +1,136 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_158_merge_stream__amsterdam_centrum",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 16,
+      "pedestrians": 0
+    },
+    {
+      "kind": "localized_merge_stream",
+      "entity": "ego",
+      "stream_entities": [
+        "stream_1",
+        "stream_2",
+        "stream_3"
+      ],
+      "ego_connector_id": "connector::n6841680481::1",
+      "stream_connector_id": "connector::n6841680481::3",
+      "ego_setback_m": 45.0,
+      "stream_setbacks_m": [
+        25.0,
+        50.0,
+        75.0
+      ]
+    },
+    {
+      "kind": "daynight_transition",
+      "initial_period": "dawn",
+      "target_period": "morning",
+      "at_s": 9.2,
+      "second_period": null,
+      "second_at_s": null
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 12,
+      "longitudinal_cohort_minimum_count": 6,
+      "longitudinal_cohort_maximum_count": 8,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": -12.0,
+        "map_flow_02": -24.0,
+        "map_flow_03": -36.0,
+        "map_flow_04": -48.0,
+        "map_flow_extra_01": 16.089876,
+        "map_flow_extra_02": 9.999956,
+        "map_flow_extra_03": 26.089889
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n8036446607",
+        "map_flow_02": "n8036446607",
+        "map_flow_03": "n8036446607",
+        "map_flow_04": "n8036446607",
+        "map_flow_extra_01": "n8036446607",
+        "map_flow_extra_02": "n8036446607",
+        "map_flow_extra_03": "n8036446607"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n117953801_n6841680481::lane_1",
+      "longitudinal_cohort_maximum_offset_m": 180.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "crossing_vehicle_ids": [
+        "map_cross_01",
+        "map_cross_02"
+      ],
+      "focal_route_lane_ids": [
+        "n117953801_n6841680481::lane_1",
+        "n6841680481_n8036446607::lane_1"
+      ],
+      "focal_connector_ids": [
+        "connector::n6841680481::1"
+      ],
+      "extra_near_ego_npc_count": 3
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  },
+  "runtime_acceptance": [
+    {
+      "kind": "minimum_merge_encounters",
+      "entity": "ego",
+      "peer_ids": [
+        "stream_1",
+        "stream_2",
+        "stream_3"
+      ],
+      "minimum_distinct_peers": 2,
+      "distance_m": 30.0
+    },
+    {
+      "kind": "merge_completed",
+      "entity": "ego",
+      "target_lane_id": "n6841680481_n8036446607::lane_1"
+    },
+    {
+      "kind": "collision_free",
+      "entities": [
+        "ego",
+        "stream_1",
+        "stream_2",
+        "stream_3"
+      ]
+    },
+    {
+      "kind": "route_arrival",
+      "entities": [
+        "ego"
+      ]
+    }
+  ]
+}

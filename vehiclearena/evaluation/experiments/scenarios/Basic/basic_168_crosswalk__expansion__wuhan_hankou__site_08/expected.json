@@ -1,0 +1,74 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_168_crosswalk__expansion__wuhan_hankou__site_08",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 9,
+      "pedestrians": 1
+    },
+    {
+      "kind": "connector_crosswalk_conflict",
+      "vehicle": "ego",
+      "pedestrian": "pedestrian"
+    },
+    {
+      "kind": "scheduled_crosswalk_entry",
+      "vehicle": "ego",
+      "pedestrian": "pedestrian",
+      "ttc_s": 4.0,
+      "start_times_s": {
+        "pedestrian": 0.7
+      }
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 8,
+      "longitudinal_cohort_minimum_count": 3,
+      "longitudinal_cohort_maximum_count": 5,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": -12.0,
+        "map_flow_02": 57.545,
+        "map_flow_03": 69.545
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n1419140537",
+        "map_flow_02": "n8202663571",
+        "map_flow_03": "n8202663571"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n1419140537_n4360488929::lane_0",
+      "longitudinal_cohort_maximum_offset_m": 72.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ],
+      "crossing_vehicle_ids": [],
+      "focal_route_lane_ids": [
+        "n1419140537_n4360488929::lane_0",
+        "n1419140537_n8202663571::lane_1"
+      ],
+      "focal_connector_ids": [
+        "connector::n1419140537::3"
+      ]
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

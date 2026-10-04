@@ -1,0 +1,111 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_171_signalized_intersection__expansion__bangkok_silom",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 16,
+      "pedestrians": 0
+    },
+    {
+      "kind": "initial_signal",
+      "connector_id": "connector::intersection::n359243169::10",
+      "value": "red"
+    },
+    {
+      "kind": "same_lane",
+      "entities": [
+        "queue_1",
+        "queue_2",
+        "queue_3"
+      ]
+    },
+    {
+      "kind": "weather_transition",
+      "initial_condition": "sunny",
+      "target_condition": "cloudy",
+      "at_s": 49.1,
+      "second_condition": "rainy",
+      "second_at_s": 137.0
+    },
+    {
+      "kind": "daynight_transition",
+      "initial_period": "dusk",
+      "target_period": "night",
+      "at_s": 61.8,
+      "second_period": "dawn",
+      "second_at_s": 145.3
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "queue_1",
+      "minimum_count": 13,
+      "longitudinal_cohort_minimum_count": 6,
+      "longitudinal_cohort_maximum_count": 8,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": -12.0,
+        "map_flow_02": -12.0,
+        "map_flow_03": -24.0,
+        "map_flow_04": -24.0,
+        "map_flow_05": -36.0,
+        "map_flow_extra_01": -43.664775,
+        "map_flow_extra_02": -41.83184,
+        "map_flow_extra_03": -53.664823
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n6543970917",
+        "map_flow_02": "n6543970917",
+        "map_flow_03": "n6543970917",
+        "map_flow_04": "n6543970917",
+        "map_flow_05": "n6543970917",
+        "map_flow_extra_01": "n6543970917",
+        "map_flow_extra_02": "n6543970917",
+        "map_flow_extra_03": "n6543970917"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n451698008_n480762207::lane_2",
+      "longitudinal_cohort_maximum_offset_m": 180.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "crossing_vehicle_ids": [
+        "map_cross_01",
+        "map_cross_02"
+      ],
+      "focal_route_lane_ids": [
+        "n451698008_n480762207::lane_2",
+        "n476319023_n6543970917::lane_0"
+      ],
+      "focal_connector_ids": [
+        "connector::intersection::n359243169::10"
+      ],
+      "extra_near_ego_npc_count": 3
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

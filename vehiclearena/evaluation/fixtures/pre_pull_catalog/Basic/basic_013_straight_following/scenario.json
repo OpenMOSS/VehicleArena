@@ -1,0 +1,74 @@
+{
+  "scenario_id": "basic_013_straight_following",
+  "name": "Basic study task 013: Straight-road baseline",
+  "road_network_id": "beijing_guomao",
+  "difficulty": "controlled",
+  "total_time_s": 28.2,
+  "tick_interval_s": 2.0,
+  "physics_step_s": 0.1,
+  "vehicles": [
+    {
+      "vehicle_id": "ego",
+      "initial_node": "n317995521",
+      "destination_node": "n1634509692",
+      "initial_lane": 0,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.544011,
+        "speed_kmh": 38.0,
+        "target_speed_kmh": 38.0,
+        "desired_speed_kmh": 38.0,
+        "lane_id": "n1634509692_n317995521::lane_0"
+      }
+    },
+    {
+      "vehicle_id": "lead",
+      "initial_node": "n317995521",
+      "destination_node": "n1634509692",
+      "initial_lane": 0,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.58,
+        "speed_kmh": 22.0,
+        "lane_id": "n1634509692_n317995521::lane_0"
+      }
+    }
+  ],
+  "pedestrians": [],
+  "experiment_scene": {
+    "schema": "vehiclearena-experiment-scenes-v2",
+    "study": "basic",
+    "source_template_id": "baseline_straight_following",
+    "focal_vehicle_id": "ego",
+    "fixed_peer_vehicle_ids": [],
+    "sumo_background_vehicle_ids": [
+      "lead"
+    ],
+    "sumo_background_pedestrian_ids": [],
+    "interaction_tags": [
+      "following",
+      "car_following"
+    ],
+    "network": "beijing_guomao"
+  },
+  "time_window_calibration": {
+    "schema": "vehiclearena-time-window-calibration-v5",
+    "method": "sumo_reference_max_trip_vehicle_arrival_plus_margin",
+    "max_successful_completion_s": 18.2,
+    "last_scheduled_event_s": 0.0,
+    "time_limit_s": 28.2,
+    "case_count": 1,
+    "successful_case_count": 1,
+    "registry_generated_at": "2026-09-09T00:18:45.353390+00:00"
+  }
+}

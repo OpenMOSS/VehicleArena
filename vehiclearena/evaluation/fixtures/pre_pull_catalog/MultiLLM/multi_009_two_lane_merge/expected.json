@@ -1,0 +1,25 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "multi_009_two_lane_merge",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 2,
+      "pedestrians": 0
+    },
+    {
+      "kind": "same_target_lane",
+      "entities": [
+        "ego",
+        "merging_vehicle"
+      ]
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

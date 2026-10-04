@@ -1,0 +1,82 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_097_crosswalk__guangzhou_tianhe",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 9,
+      "pedestrians": 1
+    },
+    {
+      "kind": "connector_crosswalk_conflict",
+      "vehicle": "ego",
+      "pedestrian": "pedestrian"
+    },
+    {
+      "kind": "scheduled_crosswalk_entry",
+      "vehicle": "ego",
+      "pedestrian": "pedestrian",
+      "ttc_s": 4.0,
+      "start_times_s": {
+        "pedestrian": 0.4
+      }
+    },
+    {
+      "kind": "weather_transition",
+      "initial_condition": "sunny",
+      "target_condition": "cloudy",
+      "at_s": 10.9,
+      "second_condition": null,
+      "second_at_s": null
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 8,
+      "longitudinal_cohort_minimum_count": 3,
+      "longitudinal_cohort_maximum_count": 5,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": 55.357,
+        "map_flow_02": 55.357,
+        "map_flow_03": 67.357
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n3412148495",
+        "map_flow_02": "n3412148495",
+        "map_flow_03": "n3412148495"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n12716426805_n320769078::lane_0",
+      "longitudinal_cohort_maximum_offset_m": 72.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ],
+      "crossing_vehicle_ids": [],
+      "focal_route_lane_ids": [
+        "n12716426805_n320769078::lane_0",
+        "n320769078_n3412148495::lane_0"
+      ],
+      "focal_connector_ids": [
+        "connector::n320769078::0"
+      ]
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

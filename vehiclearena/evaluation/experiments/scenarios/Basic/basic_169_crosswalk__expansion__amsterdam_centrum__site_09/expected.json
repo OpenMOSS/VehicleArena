@@ -1,0 +1,90 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_169_crosswalk__expansion__amsterdam_centrum__site_09",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 11,
+      "pedestrians": 1
+    },
+    {
+      "kind": "connector_crosswalk_conflict",
+      "vehicle": "ego",
+      "pedestrian": "pedestrian"
+    },
+    {
+      "kind": "scheduled_crosswalk_entry",
+      "vehicle": "ego",
+      "pedestrian": "pedestrian",
+      "ttc_s": 4.0,
+      "start_times_s": {
+        "pedestrian": 2.6
+      }
+    },
+    {
+      "kind": "weather_transition",
+      "initial_condition": "cloudy",
+      "target_condition": "snowy",
+      "at_s": 9.9,
+      "second_condition": "cloudy",
+      "second_at_s": 33.2
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 8,
+      "longitudinal_cohort_minimum_count": 3,
+      "longitudinal_cohort_maximum_count": 5,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": -12.0,
+        "map_flow_02": -24.0,
+        "map_flow_03": -36.0,
+        "map_flow_04": -48.0,
+        "map_flow_05": -12.0
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n9844170832",
+        "map_flow_02": "n9844170832",
+        "map_flow_03": "n9844170832",
+        "map_flow_04": "n9844170832",
+        "map_flow_05": "n9844170832"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n46385942_n9844170832::lane_0",
+      "longitudinal_cohort_maximum_offset_m": 72.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ],
+      "crossing_vehicle_ids": [],
+      "focal_route_lane_ids": [
+        "n46385942_n9844170832::lane_0",
+        "n271391422_n9844170832::lane_0"
+      ],
+      "focal_connector_ids": [
+        "connector::n9844170832::0"
+      ]
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

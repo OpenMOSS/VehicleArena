@@ -1,0 +1,13 @@
+rules:
+  - id: eco_mode
+    description: Passenger requests energy-saving mode
+    domain: user_intent
+    requires_modules: [energyMeter]
+    trigger:
+      user_intent:
+        messages: ["打开节能模式"]
+        vague: ["省一点电"]
+    expect:
+      actions:
+        - vw.energyMeter.set_mode('eco')
+    priority: 20

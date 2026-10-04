@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Generated evaluation outputs
+evaluation/simulation_*.gif
+evaluation/frame_*.png
+evaluation/outputs/
+evaluation/rounds/
+evaluation/runs/
+evaluation/*.log
+evaluation/*_results.json
+cache/

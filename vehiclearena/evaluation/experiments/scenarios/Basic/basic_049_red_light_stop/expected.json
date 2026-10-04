@@ -1,0 +1,94 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_049_red_light_stop",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 14,
+      "pedestrians": 0
+    },
+    {
+      "kind": "initial_signal",
+      "connector_id": "connector::intersection::n1317216453::9",
+      "value": "red"
+    },
+    {
+      "kind": "weather_transition",
+      "initial_condition": "sunny",
+      "target_condition": "cloudy",
+      "at_s": 79.5,
+      "second_condition": "snowy",
+      "second_at_s": 224.6
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 13,
+      "longitudinal_cohort_minimum_count": 6,
+      "longitudinal_cohort_maximum_count": 8,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": 12.0,
+        "map_flow_02": 12.0,
+        "map_flow_03": 12.0,
+        "map_flow_04": 12.0,
+        "map_flow_05": -12.0,
+        "map_flow_extra_01": -19.999979,
+        "map_flow_extra_02": -19.999979,
+        "map_flow_extra_03": -19.999979
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n1317216457",
+        "map_flow_02": "n1317216457",
+        "map_flow_03": "n1317216457",
+        "map_flow_04": "n1317216457",
+        "map_flow_05": "n1317216457",
+        "map_flow_extra_01": "n1317216457",
+        "map_flow_extra_02": "n1317216457",
+        "map_flow_extra_03": "n1317216457"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n1819087311_n746966157::lane_3",
+      "longitudinal_cohort_maximum_offset_m": 180.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_05",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "crossing_vehicle_ids": [],
+      "focal_route_lane_ids": [
+        "n1819087311_n746966157::lane_3",
+        "n1317216457_n1819087312::lane_3"
+      ],
+      "focal_connector_ids": [
+        "connector::intersection::n1317216453::9"
+      ],
+      "extra_near_ego_npc_count": 3
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

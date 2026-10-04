@@ -1,0 +1,88 @@
+{
+  "scenario_id": "multi_010_two_lane_merge__hongkong_central",
+  "name": "MultiLLM study task 010: Multi-agent two-lane merge [hongkong_central]",
+  "road_network_id": "hongkong_central",
+  "difficulty": "controlled",
+  "total_time_s": 18.8,
+  "tick_interval_s": 2.0,
+  "physics_step_s": 0.1,
+  "vehicles": [
+    {
+      "vehicle_id": "ego",
+      "initial_node": "n988470363",
+      "destination_node": "n166091692",
+      "initial_lane": 0,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.77109,
+        "speed_kmh": 22.0,
+        "target_speed_kmh": 22.0,
+        "desired_speed_kmh": 30.0,
+        "lane_id": "n988470348_n988470363::lane_0",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n988470348::0"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "merging_vehicle",
+      "initial_node": "n2496629720",
+      "destination_node": "n166091692",
+      "initial_lane": 1,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.785866,
+        "speed_kmh": 24.0,
+        "target_speed_kmh": 24.0,
+        "desired_speed_kmh": 30.0,
+        "lane_id": "n2496629720_n988470348::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n988470348::2"
+          }
+        ]
+      }
+    }
+  ],
+  "pedestrians": [],
+  "experiment_scene": {
+    "schema": "vehiclearena-experiment-scenes-v2",
+    "study": "multi_llm",
+    "source_template_id": "multi_two_lane_merge__hongkong_central",
+    "focal_vehicle_id": "ego",
+    "fixed_peer_vehicle_ids": [
+      "merging_vehicle"
+    ],
+    "sumo_background_vehicle_ids": [],
+    "sumo_background_pedestrian_ids": [],
+    "interaction_tags": [
+      "merge",
+      "gap_acceptance"
+    ],
+    "network": "hongkong_central"
+  },
+  "time_window_calibration": {
+    "schema": "vehiclearena-time-window-calibration-v5",
+    "method": "sumo_reference_max_trip_vehicle_arrival_plus_margin",
+    "max_successful_completion_s": 8.8,
+    "last_scheduled_event_s": 0.0,
+    "time_limit_s": 18.8,
+    "case_count": 1,
+    "successful_case_count": 1,
+    "registry_generated_at": "2026-09-09T00:18:45.353390+00:00"
+  }
+}

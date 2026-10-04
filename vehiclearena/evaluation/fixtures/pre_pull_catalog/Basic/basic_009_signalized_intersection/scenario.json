@@ -1,0 +1,111 @@
+{
+  "scenario_id": "basic_009_signalized_intersection",
+  "name": "Basic study task 009: Signalized-intersection baseline",
+  "road_network_id": "beijing_guomao",
+  "difficulty": "controlled",
+  "total_time_s": 100.3,
+  "tick_interval_s": 2.0,
+  "physics_step_s": 0.1,
+  "vehicles": [
+    {
+      "vehicle_id": "queue_1",
+      "initial_node": "n11374620112",
+      "destination_node": "n10676184554",
+      "initial_lane": 2,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.997728,
+        "speed_kmh": 0.0,
+        "target_speed_kmh": 0.0,
+        "desired_speed_kmh": 32.0,
+        "lane_id": "n11374620112_n35722739::lane_2",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::intersection::n1802595139::14"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "queue_2",
+      "initial_node": "n11374620112",
+      "destination_node": "n10676184554",
+      "initial_lane": 2,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.977279,
+        "speed_kmh": 0.0,
+        "lane_id": "n11374620112_n35722739::lane_2",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::intersection::n1802595139::14"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "queue_3",
+      "initial_node": "n11374620112",
+      "destination_node": "n10676184554",
+      "initial_lane": 2,
+      "is_evaluated": false,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "initial_physical_state": {
+        "progress": 0.95683,
+        "speed_kmh": 0.0,
+        "lane_id": "n11374620112_n35722739::lane_2",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::intersection::n1802595139::14"
+          }
+        ]
+      }
+    }
+  ],
+  "pedestrians": [],
+  "experiment_scene": {
+    "schema": "vehiclearena-experiment-scenes-v2",
+    "study": "basic",
+    "source_template_id": "baseline_signalized_intersection",
+    "focal_vehicle_id": "queue_1",
+    "fixed_peer_vehicle_ids": [],
+    "sumo_background_vehicle_ids": [
+      "queue_2",
+      "queue_3"
+    ],
+    "sumo_background_pedestrian_ids": [],
+    "interaction_tags": [
+      "signal",
+      "red_stop",
+      "queue_discharge"
+    ],
+    "network": "beijing_guomao"
+  },
+  "time_window_calibration": {
+    "schema": "vehiclearena-time-window-calibration-v5",
+    "method": "sumo_reference_max_trip_vehicle_arrival_plus_margin",
+    "max_successful_completion_s": 90.3,
+    "last_scheduled_event_s": 0.0,
+    "time_limit_s": 100.3,
+    "case_count": 1,
+    "successful_case_count": 1,
+    "registry_generated_at": "2026-09-09T00:18:45.353390+00:00"
+  }
+}

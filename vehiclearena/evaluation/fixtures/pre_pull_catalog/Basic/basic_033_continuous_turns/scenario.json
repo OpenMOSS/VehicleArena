@@ -1,0 +1,77 @@
+{
+  "scenario_id": "basic_033_continuous_turns",
+  "name": "Basic study task 033: Chassis continuous-turn response",
+  "road_network_id": "beijing_guomao",
+  "difficulty": "controlled",
+  "total_time_s": 154.8,
+  "tick_interval_s": 2.0,
+  "physics_step_s": 0.1,
+  "vehicles": [
+    {
+      "vehicle_id": "ego",
+      "initial_node": "n9141198422",
+      "destination_node": "n7141497649",
+      "initial_lane": 0,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.55,
+        "speed_kmh": 25.0,
+        "target_speed_kmh": 25.0,
+        "desired_speed_kmh": 30.0,
+        "lane_id": "n10203791835_n9141198422::lane_0",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n10203791835::1"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n3019465861::2"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n5136638591::3"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n2958762920::7"
+          },
+          {
+            "type": "connector",
+            "connector_id": "connector::n5136638601::0"
+          }
+        ]
+      }
+    }
+  ],
+  "pedestrians": [],
+  "experiment_scene": {
+    "schema": "vehiclearena-experiment-scenes-v2",
+    "study": "basic",
+    "source_template_id": "chassis_continuous_turns",
+    "focal_vehicle_id": "ego",
+    "fixed_peer_vehicle_ids": [],
+    "sumo_background_vehicle_ids": [],
+    "sumo_background_pedestrian_ids": [],
+    "interaction_tags": [
+      "continuous_turns",
+      "route_following"
+    ],
+    "network": "beijing_guomao"
+  },
+  "time_window_calibration": {
+    "schema": "vehiclearena-time-window-calibration-v5",
+    "method": "sumo_reference_max_trip_vehicle_arrival_plus_margin",
+    "max_successful_completion_s": 144.8,
+    "last_scheduled_event_s": 0.0,
+    "time_limit_s": 154.8,
+    "case_count": 1,
+    "successful_case_count": 1,
+    "registry_generated_at": "2026-09-09T00:18:45.353390+00:00"
+  }
+}

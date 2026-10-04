@@ -1,0 +1,78 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_100_crosswalk__newyork_manhattan_mid",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 10,
+      "pedestrians": 1
+    },
+    {
+      "kind": "connector_crosswalk_conflict",
+      "vehicle": "ego",
+      "pedestrian": "pedestrian"
+    },
+    {
+      "kind": "scheduled_crosswalk_entry",
+      "vehicle": "ego",
+      "pedestrian": "pedestrian",
+      "ttc_s": 4.0,
+      "start_times_s": {
+        "pedestrian": 2.6
+      }
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 8,
+      "longitudinal_cohort_minimum_count": 3,
+      "longitudinal_cohort_maximum_count": 5,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": -12.0,
+        "map_flow_02": -24.0,
+        "map_flow_03": -36.0,
+        "map_flow_04": -48.0
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n9140654137",
+        "map_flow_02": "n9140654137",
+        "map_flow_03": "n9140654137",
+        "map_flow_04": "n9140654137"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n100522479_n9140654137::lane_1",
+      "longitudinal_cohort_maximum_offset_m": 72.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ],
+      "crossing_vehicle_ids": [],
+      "focal_route_lane_ids": [
+        "n100522479_n9140654137::lane_1",
+        "n100522741_n9140654137::lane_0"
+      ],
+      "focal_connector_ids": [
+        "connector::n9140654137::0"
+      ]
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

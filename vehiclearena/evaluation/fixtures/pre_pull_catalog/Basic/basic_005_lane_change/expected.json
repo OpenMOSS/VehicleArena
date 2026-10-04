@@ -1,0 +1,32 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_005_lane_change",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 3,
+      "pedestrians": 0
+    },
+    {
+      "kind": "same_lane",
+      "entities": [
+        "ego",
+        "slow_lead"
+      ]
+    },
+    {
+      "kind": "adjacent_lane",
+      "entities": [
+        "ego",
+        "adjacent_vehicle"
+      ]
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

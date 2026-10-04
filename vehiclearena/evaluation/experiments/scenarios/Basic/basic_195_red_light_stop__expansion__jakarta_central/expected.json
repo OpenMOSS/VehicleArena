@@ -1,0 +1,99 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_195_red_light_stop__expansion__jakarta_central",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 13,
+      "pedestrians": 0
+    },
+    {
+      "kind": "initial_signal",
+      "connector_id": "connector::n329019970::1",
+      "value": "red"
+    },
+    {
+      "kind": "weather_transition",
+      "initial_condition": "cloudy",
+      "target_condition": "rainy",
+      "at_s": 20.1,
+      "second_condition": "cloudy",
+      "second_at_s": 43.6
+    },
+    {
+      "kind": "daynight_transition",
+      "initial_period": "morning",
+      "target_period": "noon",
+      "at_s": 12.0,
+      "second_period": "afternoon",
+      "second_at_s": 43.6
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 12,
+      "longitudinal_cohort_minimum_count": 6,
+      "longitudinal_cohort_maximum_count": 8,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": 12.0,
+        "map_flow_02": 12.0,
+        "map_flow_03": -12.0,
+        "map_flow_04": -12.0,
+        "map_flow_extra_01": -23.999992,
+        "map_flow_extra_02": -36.000037,
+        "map_flow_extra_03": -47.999985
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n328876219",
+        "map_flow_02": "n328876219",
+        "map_flow_03": "n328876219",
+        "map_flow_04": "n328876219",
+        "map_flow_extra_01": "n328876219",
+        "map_flow_extra_02": "n328876219",
+        "map_flow_extra_03": "n328876219"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n329019970_n4882936104::lane_1",
+      "longitudinal_cohort_maximum_offset_m": 180.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_04",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "crossing_vehicle_ids": [
+        "map_cross_01",
+        "map_cross_02"
+      ],
+      "focal_route_lane_ids": [
+        "n329019970_n4882936104::lane_1",
+        "n328876219_n329019970::lane_3"
+      ],
+      "focal_connector_ids": [
+        "connector::n329019970::1"
+      ],
+      "extra_near_ego_npc_count": 3
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

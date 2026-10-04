@@ -1,0 +1,315 @@
+# Legacy rule metadata and cabin comfort actions. Runtime external equipment
+# expectations (wipers, lamps, windows, sunroof) come from weather_safety.py;
+# ground_truth_rules ignores those historical action lines below.
+rules:
+- id: wet_weather_enter
+  description: Turn on wipers and front fog light when entering wet weather
+  domain: weather
+  trigger:
+    state_change:
+      from:
+      - sunny
+      - cloudy
+      - foggy
+      to:
+      - rainy
+      - heavy_rain
+      - snowy
+      - heavy_snow
+      - hail
+  expect:
+    actions:
+    - vw.wiper.carcontrol_wiperBlade_switch(True, 'front')
+    - vw.fogLight.carcontrol_fogLight_switch(True, 'front')
+  tolerance:
+    skip:
+    - fogLight.rear_light.*
+    - fogLight.last_position
+    - wiper.wipers.rear.*
+    - wiper.wipers.front.speed_setting.*
+    - airConditioner.ac_states.*.is_on
+    - airConditioner.ac_states.*.temperature
+    - airConditioner.ac_states.*.wind_speed
+    - airConditioner.defrost_mode
+    - airConditioner.cool_mode
+    - airConditioner.heat_mode
+    - airConditioner.auto_mode
+    - airConditioner.auto_defog_mode
+    - HUD.is_on
+    - HUD.brightness_*
+    - seat.seats.*.heater.*
+    - steeringWheel.is_heater_on
+    - rearviewMirror.heating_enabled
+- id: severe_wet_enter
+  description: Close all windows and sunroof in severe wet weather
+  domain: weather
+  trigger:
+    state_change:
+      from:
+      - sunny
+      - cloudy
+      - rainy
+      - foggy
+      to:
+      - heavy_rain
+      - snowy
+      - heavy_snow
+      - hail
+  expect:
+    actions:
+    - vw.window.carcontrol_window_switch(['all'], False)
+    - vw.sunroof.carcontrol_sunroof_switch('close')
+  tolerance:
+    skip:
+    - airConditioner.ac_states.*.is_on
+    - airConditioner.ac_states.*.temperature
+    - airConditioner.ac_states.*.wind_speed
+    - airConditioner.defrost_mode
+    - airConditioner.cool_mode
+    - airConditioner.heat_mode
+    - airConditioner.auto_mode
+    - airConditioner.auto_defog_mode
+    - seat.seats.*.heater.is_on
+    - steeringWheel.heater_on
+    - rearviewMirror.heating_enabled
+    - fogLight.rear_light.*
+    - fogLight.last_position
+    - wiper.wipers.rear.*
+- id: fog_enter
+  description: Turn on front and rear fog lights when entering fog
+  domain: weather
+  trigger:
+    state_change:
+      from:
+      - sunny
+      - cloudy
+      - rainy
+      - heavy_rain
+      - snowy
+      - heavy_snow
+      - hail
+      to:
+      - foggy
+  expect:
+    actions:
+    - vw.fogLight.carcontrol_fogLight_switch(True)
+    - vw.fogLight.carcontrol_fogLight_switch(True, 'rear')
+  tolerance:
+    skip:
+    - fogLight.last_position
+    - wiper.wipers.*.is_on
+    - wiper.wipers.*.speed_setting.*
+    - HUD.is_on
+    - HUD.brightness_*
+    - airConditioner.ac_states.*.is_on
+    - airConditioner.ac_states.*.temperature
+    - airConditioner.ac_states.*.wind_speed
+    - airConditioner.defrost_mode
+    - airConditioner.auto_mode
+    - airConditioner.auto_defog_mode
+    - seat.seats.*.heater.*
+    - steeringWheel.is_heater_on
+    - rearviewMirror.heating_enabled
+  priority: 10
+- id: wet_weather_leave
+  description: Turn off wipers and front fog light when leaving wet weather
+  domain: weather
+  trigger:
+    state_change:
+      from:
+      - rainy
+      - heavy_rain
+      - snowy
+      - heavy_snow
+      - hail
+      to:
+      - sunny
+      - cloudy
+      - foggy
+  expect:
+    actions:
+    - vw.wiper.carcontrol_wiperBlade_switch(False, 'front')
+    - vw.fogLight.carcontrol_fogLight_switch(False, 'front')
+  tolerance:
+    skip:
+    - fogLight.rear_light.*
+    - fogLight.last_position
+    - wiper.wipers.rear.*
+    - wiper.wipers.front.speed_setting.*
+    - airConditioner.ac_states.*.is_on
+    - airConditioner.ac_states.*.temperature
+    - airConditioner.ac_states.*.wind_speed
+    - airConditioner.defrost_mode
+    - airConditioner.cool_mode
+    - airConditioner.heat_mode
+    - airConditioner.auto_mode
+    - airConditioner.auto_defog_mode
+    - HUD.brightness_*
+- id: fog_leave_to_clear
+  description: Turn off all fog lights and defrost when fog clears to dry weather
+  domain: weather
+  trigger:
+    state_change:
+      from:
+      - foggy
+      to:
+      - sunny
+      - cloudy
+  expect:
+    actions:
+    - vw.fogLight.carcontrol_fogLight_switch(False)
+    - vw.fogLight.carcontrol_fogLight_switch(False, 'rear')
+    - vw.airConditioner.defrost_mode_switch(False)
+    - vw.airConditioner.auto_defog_switch(False)
+  tolerance:
+    skip:
+    - fogLight.last_position
+    - wiper.wipers.*.is_on
+    - wiper.wipers.*.speed_setting.*
+- id: fog_leave_to_wet
+  description: Turn off rear fog light and defrost when fog changes to wet weather (front fog light stays
+    on)
+  domain: weather
+  trigger:
+    state_change:
+      from:
+      - foggy
+      to:
+      - rainy
+      - heavy_rain
+      - snowy
+      - heavy_snow
+      - hail
+  expect:
+    actions:
+    - vw.fogLight.carcontrol_fogLight_switch(False, 'rear')
+    - vw.airConditioner.defrost_mode_switch(False)
+    - vw.airConditioner.auto_defog_switch(False)
+  tolerance:
+    skip:
+    - fogLight.last_position
+    - wiper.wipers.*.is_on
+    - wiper.wipers.*.speed_setting.*
+- id: cold_weather_enter
+  description: Turn on heaters when entering cold weather (snow/hail)
+  domain: weather
+  trigger:
+    state_change:
+      from:
+      - sunny
+      - cloudy
+      - rainy
+      - foggy
+      - heavy_rain
+      to:
+      - snowy
+      - heavy_snow
+      - hail
+  expect:
+    actions:
+    - vw.steeringWheel.carcontrol_steeringWheel_heater_switch(True)
+    - vw.rearviewMirror.mode_heating(True)
+    - vw.seat.carcontrol_carSeat_heater_switch(True, ['all'])
+  tolerance:
+    skip:
+    - airConditioner.ac_states.*.is_on
+    - airConditioner.ac_states.*.temperature
+    - airConditioner.ac_states.*.wind_speed
+    - airConditioner.heat_mode
+    - airConditioner.auto_mode
+    - airConditioner.auto_defog_mode
+    - window.windows.*.is_open
+    - window.windows.*.open_degree
+- id: cold_weather_leave
+  description: Turn off heaters when leaving cold weather
+  domain: weather
+  trigger:
+    state_change:
+      from:
+      - snowy
+      - heavy_snow
+      - hail
+      to:
+      - sunny
+      - cloudy
+      - rainy
+      - foggy
+      - heavy_rain
+  expect:
+    actions:
+    - vw.steeringWheel.carcontrol_steeringWheel_heater_switch(False)
+    - vw.rearviewMirror.mode_heating(False)
+    - vw.seat.carcontrol_carSeat_heater_switch(False, ['all'])
+  tolerance:
+    skip:
+    - airConditioner.ac_states.*.is_on
+    - airConditioner.ac_states.*.temperature
+    - airConditioner.ac_states.*.wind_speed
+    - airConditioner.heat_mode
+    - airConditioner.auto_mode
+    - airConditioner.auto_defog_mode
+- id: low_visibility_enter
+  description: Enable HUD and reduce brightness in low visibility
+  domain: weather
+  trigger:
+    state_change:
+      from:
+      - sunny
+      - cloudy
+      - rainy
+      to:
+      - foggy
+      - heavy_rain
+      - snowy
+      - heavy_snow
+      - hail
+  expect:
+    actions:
+    - vw.HUD.carcontrol_HUD_switch(True)
+    - vw.HUD.carcontrol_HUD_brightness_decrease(degree='large')
+  tolerance:
+    skip:
+    - HUD.brightness_nits
+    - HUD.brightness_percentage
+    - airConditioner.ac_states.*.is_on
+    - airConditioner.ac_states.*.temperature
+    - airConditioner.ac_states.*.wind_speed
+    - airConditioner.defrost_mode
+    - airConditioner.auto_mode
+    - airConditioner.auto_defog_mode
+    trend:
+      field_pattern: HUD.brightness_level
+      direction: decrease
+      baseline_field: HUD.brightness_level
+- id: low_visibility_leave
+  description: Restore HUD brightness when leaving low visibility
+  domain: weather
+  trigger:
+    state_change:
+      from:
+      - foggy
+      - heavy_rain
+      - snowy
+      - heavy_snow
+      - hail
+      to:
+      - sunny
+      - cloudy
+      - rainy
+  expect:
+    actions:
+    - vw.HUD.carcontrol_HUD_brightness_increase(degree='large')
+  tolerance:
+    skip:
+    - HUD.brightness_nits
+    - HUD.brightness_percentage
+    - airConditioner.ac_states.*.is_on
+    - airConditioner.ac_states.*.temperature
+    - airConditioner.ac_states.*.wind_speed
+    - airConditioner.defrost_mode
+    - airConditioner.auto_mode
+    - airConditioner.auto_defog_mode
+    trend:
+      field_pattern: HUD.brightness_level
+      direction: increase
+      baseline_field: HUD.brightness_level

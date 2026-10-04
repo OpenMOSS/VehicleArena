@@ -1,0 +1,31 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_009_signalized_intersection",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 3,
+      "pedestrians": 0
+    },
+    {
+      "kind": "initial_signal",
+      "connector_id": "connector::intersection::n1802595139::14",
+      "value": "red"
+    },
+    {
+      "kind": "same_lane",
+      "entities": [
+        "queue_1",
+        "queue_2",
+        "queue_3"
+      ]
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

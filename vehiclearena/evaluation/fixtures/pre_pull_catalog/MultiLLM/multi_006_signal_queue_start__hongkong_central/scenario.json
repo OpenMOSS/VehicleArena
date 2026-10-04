@@ -1,0 +1,115 @@
+{
+  "scenario_id": "multi_006_signal_queue_start__hongkong_central",
+  "name": "MultiLLM study task 006: Multi-agent signal queue start [hongkong_central]",
+  "road_network_id": "hongkong_central",
+  "difficulty": "controlled",
+  "total_time_s": 25.7,
+  "tick_interval_s": 2.0,
+  "physics_step_s": 0.1,
+  "vehicles": [
+    {
+      "vehicle_id": "queue_1",
+      "initial_node": "n5087333519",
+      "destination_node": "n7199753450",
+      "initial_lane": 1,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.996317,
+        "speed_kmh": 0.0,
+        "target_speed_kmh": 0.0,
+        "desired_speed_kmh": 32.0,
+        "lane_id": "n5087333519_n6329200291::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n6329200291::2"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "queue_2",
+      "initial_node": "n5087333519",
+      "destination_node": "n7199753450",
+      "initial_lane": 1,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.963172,
+        "speed_kmh": 0.0,
+        "target_speed_kmh": 0.0,
+        "desired_speed_kmh": 32.0,
+        "lane_id": "n5087333519_n6329200291::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n6329200291::2"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "queue_3",
+      "initial_node": "n5087333519",
+      "destination_node": "n7199753450",
+      "initial_lane": 1,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.930027,
+        "speed_kmh": 0.0,
+        "target_speed_kmh": 0.0,
+        "desired_speed_kmh": 32.0,
+        "lane_id": "n5087333519_n6329200291::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n6329200291::2"
+          }
+        ]
+      }
+    }
+  ],
+  "pedestrians": [],
+  "experiment_scene": {
+    "schema": "vehiclearena-experiment-scenes-v2",
+    "study": "multi_llm",
+    "source_template_id": "multi_signal_queue_start__hongkong_central",
+    "focal_vehicle_id": "queue_1",
+    "fixed_peer_vehicle_ids": [
+      "queue_2",
+      "queue_3"
+    ],
+    "sumo_background_vehicle_ids": [],
+    "sumo_background_pedestrian_ids": [],
+    "interaction_tags": [
+      "signal",
+      "red_stop",
+      "queue_discharge"
+    ],
+    "network": "hongkong_central"
+  },
+  "time_window_calibration": {
+    "schema": "vehiclearena-time-window-calibration-v5",
+    "method": "sumo_reference_max_trip_vehicle_arrival_plus_margin",
+    "max_successful_completion_s": 15.7,
+    "last_scheduled_event_s": 0.0,
+    "time_limit_s": 25.7,
+    "case_count": 1,
+    "successful_case_count": 1,
+    "registry_generated_at": "2026-09-09T00:18:45.353390+00:00"
+  }
+}

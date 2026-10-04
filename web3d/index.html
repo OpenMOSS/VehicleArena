@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VehicleArena Web3D</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/vendor/three.module.js",
+        "three/addons/": "/vendor/addons/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <main id="viewport" aria-label="VehicleArena 3D viewport"></main>
+
+  <section class="topbar glass">
+    <div>
+      <strong>VehicleArena Web3D</strong>
+      <span id="map-label">正在加载高精地图…</span>
+    </div>
+    <div class="controls">
+      <button class="active" data-camera="cockpit">车内视角</button>
+      <button data-camera="chase">跟车视角</button>
+      <button data-camera="overview">地图视角</button>
+    </div>
+  </section>
+
+  <aside class="status glass">
+    <div><span>仿真时间</span><strong id="sim-time">0.0 s</strong></div>
+    <div><span>本车速度</span><strong id="ego-speed">0 km/h</strong></div>
+    <div><span>控制来源</span><strong id="control-source">—</strong></div>
+    <div><span>数据连接</span><strong id="connection-status">静态预览</strong></div>
+  </aside>
+
+  <div id="cockpit" aria-hidden="true">
+    <div class="dashboard">
+      <div class="air-vent left"></div>
+      <div class="air-vent right"></div>
+      <div class="instrument-hood"></div>
+      <div class="wheel">
+        <span class="spoke left"></span>
+        <span class="spoke right"></span>
+        <span class="spoke lower"></span>
+        <span class="wheel-hub"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend glass">
+    <span><i class="dot ego"></i>焦点车辆</span>
+    <span><i class="dot npc"></i>SUMO NPC</span>
+    <span><i class="dot pedestrian"></i>行人</span>
+    <span class="prototype-note">道路与动态主体均只读取 VehicleArena/SUMO 状态</span>
+  </div>
+
+  <div id="loading">构建三维道路…</div>
+  <div id="error" hidden></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

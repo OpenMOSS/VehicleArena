@@ -1,0 +1,23 @@
+[
+  {
+    "id": "demo-normal",
+    "start": "n33399858",
+    "destination": "n35722739",
+    "plugin": "normal",
+    "seed": 1
+  },
+  {
+    "id": "demo-aggressive",
+    "start": "n36704818",
+    "destination": "n2207734187",
+    "plugin": "aggressive",
+    "seed": 2
+  },
+  {
+    "id": "demo-cautious",
+    "start": "n10676184554",
+    "destination": "n11374620112",
+    "plugin": "cautious",
+    "seed": 3
+  }
+]

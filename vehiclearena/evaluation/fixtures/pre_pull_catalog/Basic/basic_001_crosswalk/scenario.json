@@ -1,0 +1,83 @@
+{
+  "scenario_id": "basic_001_crosswalk",
+  "name": "Basic study task 001: Crosswalk baseline",
+  "road_network_id": "beijing_guomao",
+  "difficulty": "controlled",
+  "total_time_s": 106.6,
+  "tick_interval_s": 2.0,
+  "physics_step_s": 0.1,
+  "vehicles": [
+    {
+      "vehicle_id": "ego",
+      "initial_node": "n746966157",
+      "destination_node": "n1317216457",
+      "initial_lane": 3,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.641282,
+        "speed_kmh": 18.0,
+        "target_speed_kmh": 18.0,
+        "desired_speed_kmh": 30.0,
+        "lane_id": "n1819087311_n746966157::lane_3",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::intersection::n1317216453::9"
+          }
+        ]
+      }
+    }
+  ],
+  "pedestrians": [
+    {
+      "ped_id": "pedestrian",
+      "initial_node": "n1819087311",
+      "destination_node": "n1819087312",
+      "agent_config": {
+        "type": "sumo"
+      },
+      "speed": 1.4,
+      "start_time": 0.0,
+      "is_evaluated": false,
+      "collision_radius_m": 0.4,
+      "initial_physical_state": {
+        "progress": 0.887465,
+        "speed_mps": 1.4,
+        "spawned": true,
+        "crosswalk_id": "crosswalk::intersection::n1317216453::5"
+      }
+    }
+  ],
+  "experiment_scene": {
+    "schema": "vehiclearena-experiment-scenes-v2",
+    "study": "basic",
+    "source_template_id": "baseline_crosswalk",
+    "focal_vehicle_id": "ego",
+    "fixed_peer_vehicle_ids": [],
+    "sumo_background_vehicle_ids": [],
+    "sumo_background_pedestrian_ids": [
+      "pedestrian"
+    ],
+    "interaction_tags": [
+      "crosswalk",
+      "vehicle_pedestrian",
+      "through"
+    ],
+    "network": "beijing_guomao"
+  },
+  "time_window_calibration": {
+    "schema": "vehiclearena-time-window-calibration-v5",
+    "method": "sumo_reference_max_trip_vehicle_arrival_plus_margin",
+    "max_successful_completion_s": 96.6,
+    "last_scheduled_event_s": 0.0,
+    "time_limit_s": 106.6,
+    "case_count": 1,
+    "successful_case_count": 1,
+    "registry_generated_at": "2026-09-09T00:18:45.353390+00:00"
+  }
+}

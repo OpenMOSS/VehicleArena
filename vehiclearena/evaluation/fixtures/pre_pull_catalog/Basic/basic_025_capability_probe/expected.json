@@ -1,0 +1,22 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_025_capability_probe",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 8,
+      "pedestrians": 0
+    },
+    {
+      "kind": "minimum_distinct_segments",
+      "count": 8
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

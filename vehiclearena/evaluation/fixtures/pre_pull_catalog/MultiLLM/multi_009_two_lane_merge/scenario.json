@@ -1,0 +1,88 @@
+{
+  "scenario_id": "multi_009_two_lane_merge",
+  "name": "MultiLLM study task 009: Multi-agent two-lane merge",
+  "road_network_id": "beijing_guomao",
+  "difficulty": "controlled",
+  "total_time_s": 28.5,
+  "tick_interval_s": 2.0,
+  "physics_step_s": 0.1,
+  "vehicles": [
+    {
+      "vehicle_id": "ego",
+      "initial_node": "n2480713380",
+      "destination_node": "n7259089826",
+      "initial_lane": 2,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.444742,
+        "speed_kmh": 22.0,
+        "target_speed_kmh": 22.0,
+        "desired_speed_kmh": 30.0,
+        "lane_id": "n2480713380_n36704903::lane_2",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n36704903::2"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "merging_vehicle",
+      "initial_node": "n2480713380",
+      "destination_node": "n7259089826",
+      "initial_lane": 3,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.403819,
+        "speed_kmh": 24.0,
+        "target_speed_kmh": 24.0,
+        "desired_speed_kmh": 30.0,
+        "lane_id": "n2480713380_n36704903::lane_3",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n36704903::3"
+          }
+        ]
+      }
+    }
+  ],
+  "pedestrians": [],
+  "experiment_scene": {
+    "schema": "vehiclearena-experiment-scenes-v2",
+    "study": "multi_llm",
+    "source_template_id": "multi_two_lane_merge",
+    "focal_vehicle_id": "ego",
+    "fixed_peer_vehicle_ids": [
+      "merging_vehicle"
+    ],
+    "sumo_background_vehicle_ids": [],
+    "sumo_background_pedestrian_ids": [],
+    "interaction_tags": [
+      "merge",
+      "gap_acceptance"
+    ],
+    "network": "beijing_guomao"
+  },
+  "time_window_calibration": {
+    "schema": "vehiclearena-time-window-calibration-v5",
+    "method": "sumo_reference_max_trip_vehicle_arrival_plus_margin",
+    "max_successful_completion_s": 18.5,
+    "last_scheduled_event_s": 0.0,
+    "time_limit_s": 28.5,
+    "case_count": 1,
+    "successful_case_count": 1,
+    "registry_generated_at": "2026-09-09T00:18:45.353390+00:00"
+  }
+}

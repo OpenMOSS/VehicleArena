@@ -1,0 +1,20 @@
+{
+  "scenario_id": "developer_extension_example",
+  "name": "Developer extension smoke test",
+  "road_network_id": "beijing_guomao",
+  "total_time_s": 5.0,
+  "tick_interval_s": 1.0,
+  "physics_step_s": 0.1,
+  "vehicles": [],
+  "entities": [
+    {
+      "entity_type": "cargo_bike",
+      "entity_id": "bike_1",
+      "initial_node": "n33399858",
+      "destination_node": "n35722739",
+      "is_evaluated": true,
+      "agent_config": {"type": "sumo"}
+    }
+  ],
+  "pedestrians": []
+}

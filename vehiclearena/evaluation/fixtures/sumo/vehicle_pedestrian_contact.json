@@ -1,0 +1,45 @@
+{
+  "scenario_id": "test_vehicle_pedestrian_contact",
+  "name": "SUMO vehicle-pedestrian contact fixture",
+  "road_network_id": "beijing_guomao",
+  "difficulty": "controlled",
+  "total_time_s": 18.0,
+  "tick_interval_s": 2.0,
+  "physics_step_s": 0.1,
+  "vehicles": [
+    {
+      "vehicle_id": "ego",
+      "initial_node": "n746966157",
+      "destination_node": "n1317216457",
+      "initial_lane": 3,
+      "is_evaluated": true,
+      "agent_config": {"type": "sumo"},
+      "initial_physical_state": {
+        "progress": 0.501532,
+        "speed_kmh": 18.0,
+        "target_speed_kmh": 18.0,
+        "desired_speed_kmh": 30.0,
+        "connector_id": "connector::intersection::n1317216453::9"
+      }
+    }
+  ],
+  "pedestrians": [
+    {
+      "ped_id": "pedestrian",
+      "initial_node": "n1819087311",
+      "destination_node": "n1819087312",
+      "agent_config": {"type": "sumo"},
+      "speed": 1.4,
+      "start_time": 0.0,
+      "is_evaluated": true,
+      "collision_radius_m": 0.4,
+      "initial_physical_state": {
+        "progress": 0.887465,
+        "speed_mps": 1.4,
+        "spawned": true,
+        "policy_controlled": false,
+        "crosswalk_id": "crosswalk::intersection::n1317216453::5"
+      }
+    }
+  ]
+}

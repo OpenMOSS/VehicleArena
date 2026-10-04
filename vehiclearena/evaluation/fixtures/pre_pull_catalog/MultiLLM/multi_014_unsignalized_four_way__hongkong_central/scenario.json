@@ -1,0 +1,141 @@
+{
+  "scenario_id": "multi_014_unsignalized_four_way__hongkong_central",
+  "name": "MultiLLM study task 014: Multi-agent four-way conflict [hongkong_central]",
+  "road_network_id": "hongkong_central",
+  "difficulty": "controlled",
+  "total_time_s": 29.8,
+  "tick_interval_s": 2.0,
+  "physics_step_s": 0.1,
+  "vehicles": [
+    {
+      "vehicle_id": "ego",
+      "initial_node": "n9231274165",
+      "destination_node": "n9231274142",
+      "initial_lane": 0,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.05,
+        "speed_kmh": 18.0,
+        "target_speed_kmh": 18.0,
+        "desired_speed_kmh": 30.0,
+        "lane_id": "n1615603704_n9231274165::lane_0",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n1615603704::10"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "approach_2",
+      "initial_node": "n526956446",
+      "destination_node": "n7637558829",
+      "initial_lane": 1,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.05,
+        "speed_kmh": 18.0,
+        "target_speed_kmh": 18.0,
+        "desired_speed_kmh": 30.0,
+        "lane_id": "n1615603704_n526956446::lane_1",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n1615603704::0"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "approach_3",
+      "initial_node": "n9231274142",
+      "destination_node": "n526956446",
+      "initial_lane": 0,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.220961,
+        "speed_kmh": 18.0,
+        "target_speed_kmh": 18.0,
+        "desired_speed_kmh": 30.0,
+        "lane_id": "n1615603704_n9231274142::lane_0",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n1615603704::5"
+          }
+        ]
+      }
+    },
+    {
+      "vehicle_id": "approach_4",
+      "initial_node": "n7637558829",
+      "destination_node": "n526956446",
+      "initial_lane": 0,
+      "is_evaluated": true,
+      "equipment_profile": "executive",
+      "chassis_profile": "sedan",
+      "agent_config": {
+        "type": "llm"
+      },
+      "initial_physical_state": {
+        "progress": 0.239358,
+        "speed_kmh": 18.0,
+        "target_speed_kmh": 18.0,
+        "desired_speed_kmh": 30.0,
+        "lane_id": "n1615603704_n7637558829::lane_0",
+        "lane_route_actions": [
+          {
+            "type": "connector",
+            "connector_id": "connector::n1615603704::7"
+          }
+        ]
+      }
+    }
+  ],
+  "pedestrians": [],
+  "experiment_scene": {
+    "schema": "vehiclearena-experiment-scenes-v2",
+    "study": "multi_llm",
+    "source_template_id": "multi_unsignalized_four_way__hongkong_central",
+    "focal_vehicle_id": "ego",
+    "fixed_peer_vehicle_ids": [
+      "approach_2",
+      "approach_3",
+      "approach_4"
+    ],
+    "sumo_background_vehicle_ids": [],
+    "sumo_background_pedestrian_ids": [],
+    "interaction_tags": [
+      "unsignalized",
+      "four_way",
+      "connector_conflict"
+    ],
+    "network": "hongkong_central"
+  },
+  "time_window_calibration": {
+    "schema": "vehiclearena-time-window-calibration-v5",
+    "method": "sumo_reference_max_trip_vehicle_arrival_plus_margin",
+    "max_successful_completion_s": 19.8,
+    "last_scheduled_event_s": 0.0,
+    "time_limit_s": 29.8,
+    "case_count": 1,
+    "successful_case_count": 1,
+    "registry_generated_at": "2026-09-09T00:18:45.353390+00:00"
+  }
+}

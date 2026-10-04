@@ -1,0 +1,107 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_127_narrow_road__prague_vodickova__forward_peer_near_exit",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 11,
+      "pedestrians": 0
+    },
+    {
+      "kind": "weather_transition",
+      "initial_condition": "cloudy",
+      "target_condition": "foggy",
+      "at_s": 6.0,
+      "second_condition": null,
+      "second_at_s": null
+    },
+    {
+      "kind": "daynight_transition",
+      "initial_period": "afternoon",
+      "target_period": "dusk",
+      "at_s": 6.0,
+      "second_period": null,
+      "second_at_s": null
+    },
+    {
+      "kind": "separated_two_way_meeting",
+      "segment_id": "n25655193_n25655214",
+      "placements": {
+        "ego": {
+          "lane_id": "n25655193_n25655214::lane_1",
+          "progress": 0.152728
+        },
+        "oncoming": {
+          "lane_id": "n25655193_n25655214::lane_0",
+          "progress": 0.190246
+        }
+      }
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 9,
+      "longitudinal_cohort_minimum_count": 4,
+      "longitudinal_cohort_maximum_count": 6,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_extra_01"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": 12.0,
+        "map_flow_02": -12.0,
+        "map_flow_03": 24.0,
+        "map_flow_extra_01": 100.000054
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n25655214",
+        "map_flow_02": "n25655214",
+        "map_flow_03": "n25655214",
+        "map_flow_extra_01": "n25655214"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n25655193_n25655214::lane_1",
+      "longitudinal_cohort_maximum_offset_m": 180.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05",
+        "map_flow_extra_01"
+      ],
+      "crossing_vehicle_ids": [],
+      "focal_route_lane_ids": [
+        "n25655193_n25655214::lane_1"
+      ],
+      "focal_connector_ids": [],
+      "extra_near_ego_npc_count": 1
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  },
+  "runtime_acceptance": [
+    {
+      "kind": "collision_free",
+      "entities": [
+        "ego",
+        "oncoming"
+      ]
+    },
+    {
+      "kind": "route_arrival",
+      "entities": [
+        "ego"
+      ]
+    }
+  ]
+}

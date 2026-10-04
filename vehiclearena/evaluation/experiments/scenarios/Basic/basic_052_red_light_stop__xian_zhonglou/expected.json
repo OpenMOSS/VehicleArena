@@ -1,0 +1,79 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_052_red_light_stop__xian_zhonglou",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 12,
+      "pedestrians": 0
+    },
+    {
+      "kind": "initial_signal",
+      "connector_id": "connector::intersection::n11738459709::9",
+      "value": "red"
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 11,
+      "longitudinal_cohort_minimum_count": 6,
+      "longitudinal_cohort_maximum_count": 8,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": 12.0,
+        "map_flow_02": 12.0,
+        "map_flow_03": -12.0,
+        "map_flow_extra_01": -24.000064,
+        "map_flow_extra_02": -35.999981,
+        "map_flow_extra_03": -47.999898
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n2526115548",
+        "map_flow_02": "n2526115548",
+        "map_flow_03": "n2526115548",
+        "map_flow_extra_01": "n2526115548",
+        "map_flow_extra_02": "n2526115548",
+        "map_flow_extra_03": "n2526115548"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n11738459709_n11738459710::lane_1",
+      "longitudinal_cohort_maximum_offset_m": 180.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "crossing_vehicle_ids": [
+        "map_cross_01",
+        "map_cross_02"
+      ],
+      "focal_route_lane_ids": [
+        "n11738459709_n11738459710::lane_1",
+        "n1762299828_n2526115548::lane_1"
+      ],
+      "focal_connector_ids": [
+        "connector::intersection::n11738459709::9"
+      ],
+      "extra_near_ego_npc_count": 3
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

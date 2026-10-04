@@ -1,0 +1,42 @@
+{
+  "scenario_id": "test_connector_side_contact",
+  "name": "SUMO connector side-contact fixture",
+  "road_network_id": "beijing_guomao",
+  "difficulty": "controlled",
+  "total_time_s": 18.0,
+  "tick_interval_s": 2.0,
+  "physics_step_s": 0.1,
+  "vehicles": [
+    {
+      "vehicle_id": "ego",
+      "initial_node": "n100655684",
+      "destination_node": "n9141198426",
+      "initial_lane": 2,
+      "is_evaluated": true,
+      "agent_config": {"type": "sumo"},
+      "initial_physical_state": {
+        "progress": 0.461072,
+        "speed_kmh": 18.0,
+        "target_speed_kmh": 18.0,
+        "desired_speed_kmh": 30.0,
+        "connector_id": "connector::n9141198428::3"
+      }
+    },
+    {
+      "vehicle_id": "cross_traffic",
+      "initial_node": "n11205453719",
+      "destination_node": "n9141198426",
+      "initial_lane": 1,
+      "is_evaluated": false,
+      "agent_config": {"type": "sumo"},
+      "initial_physical_state": {
+        "progress": 0.475813,
+        "speed_kmh": 18.0,
+        "target_speed_kmh": 18.0,
+        "desired_speed_kmh": 30.0,
+        "connector_id": "connector::n9141198428::6"
+      }
+    }
+  ],
+  "pedestrians": []
+}

@@ -1,0 +1,144 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_148_crowded_unsignalized_crosswalk__amsterdam_centrum",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 9,
+      "pedestrians": 8
+    },
+    {
+      "kind": "connector_crosswalk_conflict",
+      "vehicle": "ego",
+      "pedestrian": "pedestrian_1"
+    },
+    {
+      "kind": "scheduled_crosswalk_entry",
+      "vehicle": "ego",
+      "pedestrian_ids": [
+        "pedestrian_1",
+        "pedestrian_2",
+        "pedestrian_3",
+        "pedestrian_4",
+        "pedestrian_5",
+        "pedestrian_6",
+        "pedestrian_7",
+        "pedestrian_8"
+      ],
+      "crosswalk_id": "crosswalk::n9844170832::2",
+      "connector_id": "connector::n9844170832::2",
+      "ttc_thresholds_s": [
+        7.0,
+        6.4,
+        5.8,
+        5.2,
+        4.6,
+        4.0,
+        3.4,
+        2.8
+      ],
+      "minimum_pedestrian_count": 8,
+      "minimum_release_span_s": 4.0,
+      "start_times_s": {
+        "pedestrian_1": 0.7,
+        "pedestrian_2": 1.3,
+        "pedestrian_3": 1.9,
+        "pedestrian_4": 2.5,
+        "pedestrian_5": 3.1,
+        "pedestrian_6": 3.7,
+        "pedestrian_7": 4.3,
+        "pedestrian_8": 4.9
+      }
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 8,
+      "longitudinal_cohort_minimum_count": 3,
+      "longitudinal_cohort_maximum_count": 5,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": -12.0,
+        "map_flow_02": -24.0,
+        "map_flow_03": -36.0
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n9844170832",
+        "map_flow_02": "n9844170832",
+        "map_flow_03": "n9844170832"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n7951335697_n9844170832::lane_0",
+      "longitudinal_cohort_maximum_offset_m": 72.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_route_04",
+        "map_route_05"
+      ],
+      "crossing_vehicle_ids": [],
+      "focal_route_lane_ids": [
+        "n7951335697_n9844170832::lane_0",
+        "n271391422_n9844170832::lane_0"
+      ],
+      "focal_connector_ids": [
+        "connector::n9844170832::2"
+      ]
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  },
+  "runtime_acceptance": [
+    {
+      "kind": "minimum_pedestrian_spawns",
+      "pedestrian_ids": [
+        "pedestrian_1",
+        "pedestrian_2",
+        "pedestrian_3",
+        "pedestrian_4",
+        "pedestrian_5",
+        "pedestrian_6",
+        "pedestrian_7",
+        "pedestrian_8"
+      ],
+      "minimum_count": 8
+    },
+    {
+      "kind": "minimum_simultaneous_crosswalk_occupancy",
+      "crosswalk_id": "crosswalk::n9844170832::2",
+      "minimum_count": 4
+    },
+    {
+      "kind": "vehicle_pedestrian_collision_free",
+      "vehicle": "ego",
+      "pedestrian_ids": [
+        "pedestrian_1",
+        "pedestrian_2",
+        "pedestrian_3",
+        "pedestrian_4",
+        "pedestrian_5",
+        "pedestrian_6",
+        "pedestrian_7",
+        "pedestrian_8"
+      ]
+    },
+    {
+      "kind": "route_arrival",
+      "entities": [
+        "ego"
+      ]
+    }
+  ]
+}

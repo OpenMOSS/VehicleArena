@@ -1,0 +1,28 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "multi_014_unsignalized_four_way__hongkong_central",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 4,
+      "pedestrians": 0
+    },
+    {
+      "kind": "same_junction_minimum_conflicts",
+      "entities": [
+        "ego",
+        "approach_2",
+        "approach_3",
+        "approach_4"
+      ],
+      "minimum_conflicting_pairs": 3
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}

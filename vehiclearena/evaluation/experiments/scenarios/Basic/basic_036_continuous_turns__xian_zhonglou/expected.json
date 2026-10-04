@@ -1,0 +1,94 @@
+{
+  "schema": "vehiclearena-experiment-scenes-v2",
+  "scene_id": "basic_036_continuous_turns__xian_zhonglou",
+  "setup_assertions": [
+    {
+      "kind": "entity_count",
+      "vehicles": 12,
+      "pedestrians": 0
+    },
+    {
+      "kind": "minimum_route_connectors",
+      "entity": "ego",
+      "count": 3,
+      "minimum_turns": 2
+    },
+    {
+      "kind": "related_background_traffic",
+      "entity": "ego",
+      "minimum_count": 11,
+      "longitudinal_cohort_minimum_count": 6,
+      "longitudinal_cohort_maximum_count": 8,
+      "longitudinal_cohort_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "longitudinal_cohort_initial_route_offsets_m": {
+        "map_flow_01": 12.0,
+        "map_flow_02": 12.0,
+        "map_flow_03": 12.0,
+        "map_flow_extra_01": -24.000079,
+        "map_flow_extra_02": -36.000118,
+        "map_flow_extra_03": -48.000158
+      },
+      "longitudinal_cohort_destination_nodes": {
+        "map_flow_01": "n9387766622",
+        "map_flow_02": "n9387766622",
+        "map_flow_03": "n9387766622",
+        "map_flow_extra_01": "n9387766622",
+        "map_flow_extra_02": "n9387766622",
+        "map_flow_extra_03": "n9387766622"
+      },
+      "longitudinal_cohort_anchor_lane_id": "n5314017945_n5314017972::lane_2",
+      "longitudinal_cohort_maximum_offset_m": 180.0,
+      "route_aligned_vehicle_ids": [
+        "map_flow_01",
+        "map_flow_02",
+        "map_flow_03",
+        "map_route_01",
+        "map_route_02",
+        "map_route_03",
+        "map_flow_extra_01",
+        "map_flow_extra_02",
+        "map_flow_extra_03"
+      ],
+      "crossing_vehicle_ids": [
+        "map_cross_01",
+        "map_cross_02"
+      ],
+      "focal_route_lane_ids": [
+        "n5314017945_n5314017972::lane_2",
+        "n11892494772_n5314017972::lane_2",
+        "n11892494772_n9387766621::lane_1",
+        "n9387766620_n9387766621::lane_1",
+        "n2628233125_n9387766620::lane_1",
+        "n2526115509_n2941418513::lane_0",
+        "n2526115509_n2887940274::lane_1",
+        "n2887940274_n2887940275::lane_1",
+        "n2887940275_n9387766622::lane_1"
+      ],
+      "focal_connector_ids": [
+        "connector::n5314017972::2",
+        "connector::n11892494772::2",
+        "connector::n9387766621::5",
+        "connector::n9387766620::4",
+        "connector::intersection::n2628233125::11",
+        "connector::n2526115509::0",
+        "connector::n2887940274::0",
+        "connector::n2887940275::0"
+      ],
+      "extra_near_ego_npc_count": 3
+    }
+  ],
+  "smoke": {
+    "duration_s": 8.0,
+    "all_agents": "sumo",
+    "forbid_initialization_error": true,
+    "allow_initial_collision": false,
+    "minimum_initial_collisions": 0
+  }
+}
