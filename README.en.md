@@ -151,3 +151,7 @@ If VehicleArena helps your research, please cite the [paper](https://arxiv.org/a
   year={2026}
 }
 ```
+
+## License
+
+The code is released under the [MIT License](LICENSE). The separately hosted road-network bundle is licensed under Apache-2.0; see its [dataset card](https://huggingface.co/datasets/OpenMOSS-Team/VehicleArena).

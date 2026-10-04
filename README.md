@@ -218,3 +218,7 @@ web3d/                 # 基于 Three.js 的 SUMO 实时三维显示器
   year={2026}
 }
 ```
+
+## 许可证
+
+代码采用 [MIT 许可证](LICENSE)。单独托管的道路网络地图包采用 Apache-2.0 许可证，详见[数据集说明](https://huggingface.co/datasets/OpenMOSS-Team/VehicleArena)。
