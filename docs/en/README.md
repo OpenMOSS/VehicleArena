@@ -1,6 +1,6 @@
 # VehicleArena documentation
 
-[中文文档](../README.md) · [Project README](../../README.en.md)
+[中文文档](../README.md) · [Project README](../../README.en.md) · [Paper](https://arxiv.org/abs/2609.35916)
 
 Start with the [quickstart](quickstart.md), then read the [architecture](architecture.md), [batch LLM guide](llm-suite.md), and [evaluation protocol](evaluation.md). These pages describe the current implementation and frozen benchmark.
 

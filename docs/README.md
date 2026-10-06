@@ -1,6 +1,6 @@
 # VehicleArena 开发者文档
 
-[English documentation](en/README.md) · [项目主页](../README.md)
+[English documentation](en/README.md) · [项目主页](../README.md) · [论文](https://arxiv.org/abs/2609.35916)
 
 ## 阅读顺序
 
